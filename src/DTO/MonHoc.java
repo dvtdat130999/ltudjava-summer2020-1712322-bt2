@@ -1,5 +1,8 @@
 package DTO;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+
 public class MonHoc {
     private String ma;
     private String ten;
@@ -8,7 +11,8 @@ public class MonHoc {
         this.ma = ma;
         this.ten = ten;
     }
-
+    @Id
+    @Column(name = "mssv", unique = true, nullable = false)
     public String getMa() {
         return ma;
     }

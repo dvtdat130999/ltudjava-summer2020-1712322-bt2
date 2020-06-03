@@ -1,11 +1,19 @@
 package DTO;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "sinhvien", catalog = "studentmanagement")
 public class SinhVien {
     private int mssv;
     private String hoTen;
     private String gioiTinh;
     private int cmnd;
     private String lop;
+
 
     public SinhVien(int mssv, String hoTen, String gioiTinh, int cmnd, String lop) {
         this.mssv = mssv;
@@ -14,7 +22,8 @@ public class SinhVien {
         this.cmnd = cmnd;
         this.lop = lop;
     }
-
+    @Id
+    @Column(name = "mssv", unique = true, nullable = false)
     public int getMssv() {
         return mssv;
     }
@@ -23,6 +32,7 @@ public class SinhVien {
         this.mssv = mssv;
     }
 
+    @Column(name = "hoTen")
     public String getHoTen() {
         return hoTen;
     }
@@ -31,6 +41,7 @@ public class SinhVien {
         this.hoTen = hoTen;
     }
 
+    @Column(name = "gioiTinh")
     public String getGioiTinh() {
         return gioiTinh;
     }
@@ -39,6 +50,7 @@ public class SinhVien {
         this.gioiTinh = gioiTinh;
     }
 
+    @Column(name = "cmnd")
     public int getCmnd() {
         return cmnd;
     }
@@ -47,6 +59,7 @@ public class SinhVien {
         this.cmnd = cmnd;
     }
 
+    @Column(name = "lop")
     public String getLop() {
         return lop;
     }
