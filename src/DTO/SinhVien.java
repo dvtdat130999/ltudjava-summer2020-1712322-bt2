@@ -1,3 +1,5 @@
+package DTO;
+
 public class SinhVien {
     private int mssv;
     private String hoTen;

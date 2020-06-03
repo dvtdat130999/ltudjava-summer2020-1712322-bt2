@@ -1,3 +1,5 @@
+package DTO;
+
 public class DiemSinhVien {
     private SinhVien sinhVien;
     private double diemGk;
