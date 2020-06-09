@@ -11,6 +11,7 @@
       <root url="jar://F:/Downloads/jar_for_hibernate/jbcrypt-0.3m.jar!/" />
       <root url="jar://F:/Downloads/jar_for_hibernate/jboss-logging-3.3.0.Final.jar!/" />
       <root url="jar://F:/Downloads/jar_for_hibernate/mysql-connector-java-8.0.20.jar!/" />
+      <root url="jar://F:/Downloads/jar_for_hibernate/hibernate-core-5.1.0.Final.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

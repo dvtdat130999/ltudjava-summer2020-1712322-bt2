@@ -13,6 +13,7 @@ public class ThoiKhoaBieu {
         this.mon = new ArrayList<>();
     }
 
+
     public String getLop() {
         return lop;
     }

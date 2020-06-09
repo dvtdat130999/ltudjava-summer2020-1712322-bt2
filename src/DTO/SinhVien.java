@@ -1,27 +1,40 @@
 package DTO;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "sinhvien", catalog = "studentmanagement")
 public class SinhVien {
+
     private int mssv;
+
     private String hoTen;
+
     private String gioiTinh;
-    private int cmnd;
-    private String lop;
+
+    private String cmnd;
 
 
-    public SinhVien(int mssv, String hoTen, String gioiTinh, int cmnd, String lop) {
+    private Lop lop;
+
+    public SinhVien()
+    {
+
+    }
+    public SinhVien(int mssv, String hoTen, String gioiTinh, String cmnd, Lop lop) {
         this.mssv = mssv;
         this.hoTen = hoTen;
         this.gioiTinh = gioiTinh;
         this.cmnd = cmnd;
         this.lop = lop;
     }
+
     @Id
     @Column(name = "mssv", unique = true, nullable = false)
     public int getMssv() {
@@ -51,20 +64,22 @@ public class SinhVien {
     }
 
     @Column(name = "cmnd")
-    public int getCmnd() {
+    public String getCmnd() {
         return cmnd;
     }
 
-    public void setCmnd(int cmnd) {
+    public void setCmnd(String cmnd) {
         this.cmnd = cmnd;
     }
 
-    @Column(name = "lop")
-    public String getLop() {
+    @ManyToOne
+    @JoinColumn(name="lop", nullable=false)
+    public Lop getLop() {
         return lop;
     }
 
-    public void setLop(String lop) {
+    public void setLop(Lop lop) {
         this.lop = lop;
     }
 }
+

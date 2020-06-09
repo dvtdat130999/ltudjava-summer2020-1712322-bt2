@@ -1,16 +1,18 @@
 package DTO;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Lop_MonHoc {
     private String lop;
     private String maMon;
-    private ArrayList<SinhVien> sinhvien;
+    private Set<SinhVien> sinhvien;
 
     public Lop_MonHoc(String lop, String maMon) {
         this.lop = lop;
         this.maMon = maMon;
-        this.sinhvien = new ArrayList<>();
+        this.sinhvien = new HashSet<SinhVien>();
     }
 
     public String getLop() {
@@ -29,11 +31,11 @@ public class Lop_MonHoc {
         this.maMon = maMon;
     }
 
-    public ArrayList<SinhVien> getSinhvien() {
+    public Set<SinhVien> getSinhvien() {
         return sinhvien;
     }
 
-    public void setSinhvien(ArrayList<SinhVien> sinhvien) {
+    public void setSinhvien(Set<SinhVien> sinhvien) {
         this.sinhvien = sinhvien;
     }
 }
