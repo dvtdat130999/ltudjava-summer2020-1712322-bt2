@@ -7,12 +7,11 @@ import DAO.*;
 import Util.Util;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Demo {
+    private static boolean isLogin=false;
+
     public static void main(String[] args) throws IOException {
         /*List<Lop> listLop=LopDAO.listLop();
         for(Lop a: listLop)
@@ -64,18 +63,27 @@ public class Demo {
         }*/
 
         //yeu cau 1
-        /*Lop a=ImportCSVLop.ReadCsvFile("lop2.csv");
-        LopDAO.addLop(a);*/
+        /*Lop a=ImportCSVLop.ReadCsvFile("lop1.csv");
+        LopDAO.addLop(a);
+        List<SinhVien>sv=SinhVien.listSinhVienLop(a.getTenLop());
+        for(SinhVien b:sv)
+        {
+            NguoiDung res=new NguoiDung(String.valueOf(b.getMssv()),String.valueOf(b.getMssv()));
+            NguoiDungDAO.addNguoiDung(res);
+        }*/
 
         //yeu cau 2
-        /*Lop a=ImportCSV.ReadCsvFile("lop1.csv");
+        /*Lop a=ImportCSVLop.ReadCsvFile("lop1.csv");
         SinhVien b=new SinhVien();
         b.setLop(a);
         b.setMssv(1742006);
         b.setHoTen("Trần Kiều X");
         b.setCmnd("987612345");
         b.setGioiTinh("Nữ");
-        SinhVienDAO.addSinhVien(b);*/
+        SinhVienDAO.addSinhVien(b);
+        NguoiDung res=new NguoiDung(String.valueOf(b.getMssv()),String.valueOf(b.getMssv()));
+        NguoiDungDAO.addNguoiDung(res);*/
+
 
 
 
@@ -256,7 +264,24 @@ public class Demo {
         }*/
 
         //thong ke phan tram dau, phan tram rot
+/*
         DiemSinhVien.thongKeDauRot(lop,mon,nam,hocKy);
+*/
+
+        //yeu cau 11
+        //giao vu
+        /*NguoiDung nd=new NguoiDung("giaovu","giaovu");
+        NguoiDungDAO.addNguoiDung(nd);*/
+
+        //dang nhap
+        /*NguoiDung a=Demo.nhapTaiKhoanVaMatKhau();
+        Demo.DangNhap(a);*/
+
+        //doi mat khau
+/*
+        Demo.DoiMatKhau();
+*/
+
     }
 
     public static void printSinhVien(SinhVien a)
@@ -282,5 +307,62 @@ public class Demo {
         System.out.println("Kết quả: "+a.getKetQua());
 
         System.out.println();
+    }
+
+    public static NguoiDung nhapTaiKhoanVaMatKhau()
+    {
+
+        System.out.print("Tài khoản:");
+        Scanner sc=new Scanner(System.in);
+        String taikhoan=sc.nextLine();
+        System.out.print("Mật khẩu:");
+        String matkhau=sc.nextLine();
+        NguoiDung res=new NguoiDung(taikhoan,matkhau);
+
+        return res;
+    }
+
+    public static void DangNhap(NguoiDung a)
+    {
+        if(NguoiDungDAO.searchNguoiDung(a.getTaiKhoan(),a.getMatKhau()))
+        {
+            isLogin=true;
+            System.out.print("Bạn đã đăng nhập thành công");
+
+        }
+        else
+        {
+            System.out.print("Sai tài khoản hoặc mật khẩu");
+
+        }
+    }
+    public static void DangXuat()
+    {
+        isLogin=false;
+
+    }
+
+    public static void DoiMatKhau()
+    {
+        System.out.println("Đổi mật khẩu");
+        System.out.println("");
+
+        System.out.print("Tài khoản: ");
+        Scanner sc=new Scanner(System.in);
+        String taikhoan=sc.nextLine();
+        System.out.print("Mật khẩu cũ: ");
+        String matkhau=sc.nextLine();
+        System.out.print("Mật khẩu mới: ");
+        String matkhauMoi=sc.nextLine();
+        if(NguoiDungDAO.searchNguoiDung(taikhoan,matkhau))
+        {
+            NguoiDungDAO.updateNguoiDung(taikhoan,matkhauMoi);
+            System.out.print("Đổi mật khẩu thành công, hãy đăng nhập lại");
+
+        }
+        else {
+            System.out.print("Tài khoản hoặc mật khẩu cũ nhập sai");
+
+        }
     }
 }
