@@ -1,7 +1,12 @@
 
 package DTO;
 
+import DAO.Lop_MonHocDAO;
+import DAO.MonHocDAO;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -57,6 +62,7 @@ public class MonHoc {
         this.phong=phong;
     }
 
+    @Column(name = "nam")
     public String getNam() {
         return nam;
     }
@@ -65,12 +71,29 @@ public class MonHoc {
         this.nam = nam;
     }
 
+
+    @Column(name = "hocKy")
     public int getHocKy() {
         return hocKy;
     }
 
     public void setHocKy(int hocKy) {
         this.hocKy = hocKy;
+    }
+
+    public static List searchByLop(String tenLop)
+    {
+        List<Lop_MonHoc>listLm= Lop_MonHocDAO.listLopMon();
+        List<MonHoc>res=new ArrayList<>();
+        for(Lop_MonHoc a:listLm)
+        {
+            if(Util.Util.stringCompare(a.getTenLop(),tenLop)==0)
+            {
+                MonHoc b= MonHocDAO.searchMonHoc(a.getMaMon());
+                res.add(b);
+            }
+        }
+        return res;
     }
 }
 

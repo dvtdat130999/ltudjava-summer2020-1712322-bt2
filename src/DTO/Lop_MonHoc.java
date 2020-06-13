@@ -1,16 +1,26 @@
 package DTO;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import DAO.Lop_MonHocDAO;
+import DAO.SinhVienDAO;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+
 @Entity
 @Table(name = "lop_mon", catalog = "studentmanagement")
-public class Lop_MonHoc {
+@IdClass(IDLop_MonHoc.class)
+public class Lop_MonHoc  {
+    @Id
+    @Column(name = "tenLop", nullable = false)
     private String tenLop;
+
+    @Id
+    @Column(name = "maMon", nullable = false)
     private String maMon;
 
     public Lop_MonHoc() {
@@ -22,6 +32,7 @@ public class Lop_MonHoc {
         this.maMon = maMon;
     }
 
+
     public String getTenLop() {
         return tenLop;
     }
@@ -30,6 +41,7 @@ public class Lop_MonHoc {
         this.tenLop = tenLop;
     }
 
+
     public String getMaMon() {
         return maMon;
     }
@@ -37,4 +49,7 @@ public class Lop_MonHoc {
     public void setMaMon(String maMon) {
         this.maMon = maMon;
     }
+
+
+
 }

@@ -4,6 +4,7 @@ import DAO.LopDAO;
 import DTO.Lop;
 import DTO.Lop_MonHoc;
 import DTO.SinhVien;
+import DTO.SinhVien_Lop_Mon;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import java.io.BufferedReader;
@@ -16,10 +17,10 @@ public class ImportCSVLopMon {
     private static final String COMMA_DELIMITER = ",";
 
     // CSV file second line
-    public static String FILE_SECOND_LINE = "STT,MSSV,Họ tên, Giới tính, CMND";
+    public static String FILE_SECOND_LINE = "STT,MSSV,Họ tên,Giới tính,CMND";
 
-    public static Lop_MonHoc ReadCsvFile(String src) throws IOException {
-        Lop_MonHoc lm=new Lop_MonHoc();
+    public static SinhVien_Lop_Mon ReadCsvFile(String src) throws IOException {
+        SinhVien_Lop_Mon lm=new SinhVien_Lop_Mon();
         BufferedReader br = null;
         List<SinhVien> sinhViens=new ArrayList<SinhVien>();
         try {
@@ -28,10 +29,9 @@ public class ImportCSVLopMon {
             line=br.readLine();//doc dong thu nhat
             String[] information=parseCsvLine(line);
 
-            lm.setLop(information[0]);
+            lm.setTenLop(information[0]);
             lm.setMaMon(information[1]);
-            lm.setNam(information[2]);
-            lm.setHocKy(Integer.parseInt(information[3]));
+
             Lop lop= LopDAO.searchLop(information[0]);
 
             line=br.readLine();//doc dong thu hai
@@ -55,7 +55,7 @@ public class ImportCSVLopMon {
             System.out.println("Mo file that bai");
         }
 
-        lm.setSinhvien(sinhViens);
+        lm.setSinhVien(sinhViens);
         return lm;
 
     }

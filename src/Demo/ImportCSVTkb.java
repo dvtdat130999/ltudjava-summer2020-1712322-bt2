@@ -14,7 +14,7 @@ import java.util.List;
 public class ImportCSVTkb {
     private static final String COMMA_DELIMITER = ",";
     // CSV file second line
-    public static String FILE_SECOND_LINE = "STT,Mã môn,Tên môn,Phòng học";
+    public static String FILE_SECOND_LINE = "STT,Mã môn,Tên môn,Phòng học,Năm,Học kỳ";
 
     public static ThoiKhoaBieu ReadCsvFile(String src) throws IOException {
         ThoiKhoaBieu tkb=new ThoiKhoaBieu();
@@ -26,8 +26,7 @@ public class ImportCSVTkb {
             line=br.readLine();//dong dong dau
             String[] information=parseCsvLine(line);
             tkb.setLop(information[0]);
-            tkb.setNam(information[1]);
-            tkb.setHocKy(Integer.parseInt(information[2]));
+
 
 
             line=br.readLine();//doc dong thu hai
@@ -40,7 +39,8 @@ public class ImportCSVTkb {
                 a.setMa(information[1]);
                 a.setTen(information[2]);
                 a.setPhong(information[3]);
-
+                a.setNam(information[4]);
+                a.setHocKy(Integer.parseInt(information[5]));
                 monHocs.add(a);
 
             }

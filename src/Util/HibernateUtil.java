@@ -1,7 +1,6 @@
 package Util;
 
-import DTO.Lop;
-import DTO.SinhVien;
+import DTO.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -19,6 +18,9 @@ public class HibernateUtil {
 
             configuration.addAnnotatedClass(Lop.class);
             configuration.addAnnotatedClass(SinhVien.class);
+            configuration.addAnnotatedClass(MonHoc.class);
+            configuration.addAnnotatedClass(Lop_MonHoc.class);
+            configuration.addAnnotatedClass(SinhVien_Mon.class);
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 
 

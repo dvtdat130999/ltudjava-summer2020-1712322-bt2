@@ -22,6 +22,10 @@
         <mapping class="DTO.Lop"/>
         <mapping class="DTO.SinhVien"/>
         <mapping class="DTO.ThoiKhoaBieu"/>
+        <mapping class="DTO.MonHoc"/>
+        <mapping class="DTO.Lop_MonHoc"/>
+        <mapping class="DTO.SinhVien_Mon"/>
+
 
     </session-factory>
 </hibernate-configuration>

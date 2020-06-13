@@ -1,6 +1,8 @@
 package DTO;
 
+import DAO.LopDAO;
 import DAO.SinhVienDAO;
+import DAO.SinhVien_MonDAO;
 import Util.Util;
 
 import javax.persistence.Column;
@@ -102,6 +104,25 @@ public class SinhVien {
             }
         }
         return result;
+    }
+
+    public static List listSinhVienLopMon(String tenLop,String maMon)
+    {
+        List <SinhVien_Mon>svm= SinhVien_MonDAO.listSinhVienMon();
+        List<SinhVien> result= new ArrayList<SinhVien>();
+        for(int i=0;i<svm.size();i++)
+        {
+            int mssv= svm.get(i).getMssv();
+            String mon=svm.get(i).getMaMon();
+            String lop=svm.get(i).getTenLop();
+            SinhVien sv= SinhVienDAO.searchSinhVien(mssv);
+            if(Util.stringCompare(mon,maMon)==0&&Util.stringCompare(tenLop,lop)==0 )
+            {
+                result.add(sv);
+            }
+        }
+        return result;
+
     }
 }
 
