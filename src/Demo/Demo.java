@@ -132,9 +132,9 @@ public class Demo {
         System.out.println("Lop, mon, nam, hoc ky:"+lm.getTenLop()+", " +lm.getMaMon() +", "+lm_m.getNam()+","+lm_m.getHocKy());
         for(SinhVien a:lm.getSinhVien())
         {
-            System.out.println("Ma : "+a.getMssv());
-            System.out.println("Ten : "+a.getHoTen());
-            System.out.println("Gioi tinh: "+a.getGioiTinh());
+            System.out.println("Mã : "+a.getMssv());
+            System.out.println("Tên : "+a.getHoTen());
+            System.out.println("Giới tính: "+a.getGioiTinh());
             System.out.println("CMND: "+a.getCmnd());
             System.out.println("");
         }*/
@@ -154,9 +154,9 @@ public class Demo {
         /*List<SinhVien> sv=SinhVien.listSinhVienLop("18HCB");
         for(SinhVien a:sv)
         {
-            System.out.println("Ma : "+a.getMssv());
-            System.out.println("Ten : "+a.getHoTen());
-            System.out.println("Gioi tinh: "+a.getGioiTinh());
+            System.out.println("Mã : "+a.getMssv());
+            System.out.println("Tên : "+a.getHoTen());
+            System.out.println("Giới tính: "+a.getGioiTinh());
             System.out.println("CMND: "+a.getCmnd());
             System.out.println("");
         }*/
@@ -166,9 +166,9 @@ public class Demo {
         /*List<SinhVien>sv2=SinhVien.listSinhVienLopMon("18HCB","CTT001");
         for(SinhVien a:sv2)
         {
-            System.out.println("Ma : "+a.getMssv());
-            System.out.println("Ten : "+a.getHoTen());
-            System.out.println("Gioi tinh: "+a.getGioiTinh());
+            System.out.println("Mã : "+a.getMssv());
+            System.out.println("Tên : "+a.getHoTen());
+            System.out.println("Giới tính: "+a.getGioiTinh());
             System.out.println("CMND: "+a.getCmnd());
             System.out.println("");
         }*/
@@ -185,15 +185,102 @@ public class Demo {
         System.out.println("Lop:"+test.getLop());
         for(MonHoc a:mon)
         {
-            System.out.println("Ma mon: "+a.getMa());
-            System.out.println("Ten mon: "+a.getTen());
-            System.out.println("Phong: "+a.getPhong());
+            System.out.println("Mã môn: "+a.getMa());
+            System.out.println("Tên môn: "+a.getTen());
+            System.out.println("Phòng: "+a.getPhong());
             System.out.println("");
         }*/
 
+        //yeu cau 7
+
+        /*List<DiemSinhVien>dsv=ImportCSVDiem.ReadCsvFile("diem_lop2_mon1.csv");
+
+        String lop=dsv.get(0).getLop();
+        String mon=dsv.get(0).getMaMon();
+        String nam=dsv.get(0).getNam();
+        int hocKy=dsv.get(0).getHocKy();
+        System.out.println("Lop, mon, nam, hoc ky:"+lop+", "+mon+", "+nam+", "+hocKy);
+        System.out.println();
+        for(DiemSinhVien a:dsv)
+        {
+            Demo.printDiemSinhVien(a);
 
 
+        }
+
+        //add diem sinh vien vao database
+        for(DiemSinhVien a:dsv)
+        {
+            DiemSinhVienDAO.addDiemSinhVien(a);
+        }*/
+
+        //yeu cau 8
+        //xem lai bang diem theo lop, mon, hoc ky, nam
+
+        /*String lop="18HCB";
+        String mon="CTT001";
+        String nam="2019-2020";
+        int hocKy=1;
+        List<DiemSinhVien>dsv=DiemSinhVien.listDiemSinhVien(lop,mon,nam,hocKy);
+
+        for(DiemSinhVien a:dsv)
+        {
+            Demo.printDiemSinhVien(a);
 
 
+        }*/
+
+        //cho biet ai dau, ai rot
+
+        //xem tat ca sinh vien dau va rot nhu tren
+
+        //xem cac sinh vien dau
+        String lop="18HCB";
+        String mon="CTT001";
+        String nam="2019-2020";
+        int hocKy=1;
+        /*List<DiemSinhVien>dsv=DiemSinhVien.listSinhVienDau(lop,mon,nam,hocKy);
+        for(DiemSinhVien a:dsv)
+        {
+                        Demo.printDiemSinhVien(a);
+
+
+        }*/
+
+        //xem cac sinh vien rot
+        /*List<DiemSinhVien>dsv=DiemSinhVien.listSinhVienRot(lop,mon,nam,hocKy);
+        for(DiemSinhVien a:dsv)
+        {
+            Demo.printDiemSinhVien(a);
+
+        }*/
+
+        //thong ke phan tram dau, phan tram rot
+        DiemSinhVien.thongKeDauRot(lop,mon,nam,hocKy);
+    }
+
+    public static void printSinhVien(SinhVien a)
+    {
+        System.out.println("MSSV: "+a.getMssv());
+        System.out.println("Họ và tên: "+a.getHoTen());
+        System.out.println("Gioi tinh: "+a.getGioiTinh());
+        System.out.println("CMND: "+a.getCmnd());
+
+        System.out.println();
+
+    }
+    public static void printDiemSinhVien(DiemSinhVien a)
+    {
+        System.out.println("Lớp: "+a.getLop());
+        System.out.println("Môn: "+a.getMaMon());
+        System.out.println("MSSV: "+a.getMssv());
+        System.out.println("Họ tên: "+a.getHoTen());
+        System.out.println("Điểm GK: "+a.getDiemGk());
+        System.out.println("Điểm CK: "+a.getDiemCk());
+        System.out.println("Điểm khác: "+a.getDiemKhac());
+        System.out.println("Điểm tổng: "+a.getDiemTong());
+        System.out.println("Kết quả: "+a.getKetQua());
+
+        System.out.println();
     }
 }

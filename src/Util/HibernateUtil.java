@@ -21,6 +21,7 @@ public class HibernateUtil {
             configuration.addAnnotatedClass(MonHoc.class);
             configuration.addAnnotatedClass(Lop_MonHoc.class);
             configuration.addAnnotatedClass(SinhVien_Mon.class);
+            configuration.addAnnotatedClass(DiemSinhVien.class);
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 
 

@@ -25,6 +25,7 @@
         <mapping class="DTO.MonHoc"/>
         <mapping class="DTO.Lop_MonHoc"/>
         <mapping class="DTO.SinhVien_Mon"/>
+        <mapping class="DTO.DiemSinhVien"/>
 
 
     </session-factory>
