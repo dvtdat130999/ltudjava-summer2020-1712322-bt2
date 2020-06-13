@@ -1,26 +1,33 @@
 package DTO;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@Entity
+@Table(name = "lop_mon", catalog = "studentmanagement")
 public class Lop_MonHoc {
-    private String lop;
+    private String tenLop;
     private String maMon;
-    private Set<SinhVien> sinhvien;
 
-    public Lop_MonHoc(String lop, String maMon) {
-        this.lop = lop;
+    public Lop_MonHoc() {
+        tenLop=maMon="";
+    }
+
+    public Lop_MonHoc(String tenLop, String maMon) {
+        this.tenLop = tenLop;
         this.maMon = maMon;
-        this.sinhvien = new HashSet<SinhVien>();
     }
 
-    public String getLop() {
-        return lop;
+    public String getTenLop() {
+        return tenLop;
     }
 
-    public void setLop(String lop) {
-        this.lop = lop;
+    public void setTenLop(String tenLop) {
+        this.tenLop = tenLop;
     }
 
     public String getMaMon() {
@@ -29,13 +36,5 @@ public class Lop_MonHoc {
 
     public void setMaMon(String maMon) {
         this.maMon = maMon;
-    }
-
-    public Set<SinhVien> getSinhvien() {
-        return sinhvien;
-    }
-
-    public void setSinhvien(Set<SinhVien> sinhvien) {
-        this.sinhvien = sinhvien;
     }
 }

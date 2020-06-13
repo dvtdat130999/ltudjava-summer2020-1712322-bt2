@@ -1,5 +1,8 @@
 package Util;
 
+import Demo.ImportCSVTkb;
+import Demo.ImportCSVTkb;
+
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -50,18 +53,18 @@ public class Util {
             return 0;
         }
     }
-    public static boolean checkSecondLine(String csvLine)
+    /*public static boolean checkSecondLine(String csvLine)
     {
-        if(Util.stringCompare(ExportCSV.FILE_HEADER,csvLine)==0)
+        if(Util.stringCompare(ImportCSV.FILE_SECOND_LINE,csvLine)==0)
             return true;
         return false;
     }
-    public static boolean checkSecondLine(String csvLine)
+    public static boolean checkFirstLine(String csvLine)
     {
-        if(Util.stringCompare(ExportCSV.FILE_HEADER,csvLine)==0)
+        if(csvLine.length()>10)
             return true;
         return false;
-    }
+    }*/
 
 
 

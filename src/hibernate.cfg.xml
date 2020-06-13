@@ -21,7 +21,7 @@
         <!-- List mapping annotation classes -->
         <mapping class="DTO.Lop"/>
         <mapping class="DTO.SinhVien"/>
-
+        <mapping class="DTO.ThoiKhoaBieu"/>
 
     </session-factory>
 </hibernate-configuration>

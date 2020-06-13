@@ -55,7 +55,8 @@ public class LopDAO {
 
     public static void updateLop(String tenLop)
     {
-        Session session = factory.openSession();
+        Session session = HibernateUtil.getSessionFactory()
+                .openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -72,7 +73,8 @@ public class LopDAO {
     }
 
     public static void deleteLop(String tenLop) {
-        Session session = factory.openSession();
+        Session session = HibernateUtil.getSessionFactory()
+                .openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();

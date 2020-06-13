@@ -1,5 +1,8 @@
 package DTO;
 
+import DAO.SinhVienDAO;
+import Util.Util;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -7,6 +10,8 @@ import javax.persistence.ManyToOne;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "sinhvien", catalog = "studentmanagement")
@@ -25,7 +30,9 @@ public class SinhVien {
 
     public SinhVien()
     {
-
+        mssv=0;
+        hoTen=gioiTinh=cmnd="";
+        lop=null;
     }
     public SinhVien(int mssv, String hoTen, String gioiTinh, String cmnd, Lop lop) {
         this.mssv = mssv;
@@ -80,6 +87,21 @@ public class SinhVien {
 
     public void setLop(Lop lop) {
         this.lop = lop;
+    }
+
+    public static List listSinhVienLop(String tenLop) {
+
+        List <SinhVien>list= SinhVienDAO.listSinhVien();
+
+        List<SinhVien> result= new ArrayList<SinhVien>();
+        for(int i=0;i<list.size();i++)
+        {
+            if(Util.stringCompare(list.get(i).getLop().getTenLop(),tenLop)==0)
+            {
+                result.add(list.get(i));
+            }
+        }
+        return result;
     }
 }
 

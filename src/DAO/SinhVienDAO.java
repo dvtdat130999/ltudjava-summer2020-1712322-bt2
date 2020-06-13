@@ -35,10 +35,11 @@ public class SinhVienDAO {
     public static List listSinhVien() {
         List listSinhVien=new ArrayList<SinhVien>();
 
-        Session session = factory.openSession();
+        Session session = HibernateUtil.getSessionFactory()
+                .openSession();
         try {
 
-            listSinhVien=session.createQuery("FROM sinhvien").list();
+            listSinhVien=session.createQuery("FROM SinhVien").list();
 
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -47,6 +48,8 @@ public class SinhVienDAO {
         }
         return listSinhVien;
     }
+
+
 
     public static SinhVien searchSinhVien(int mssv) {
         SinhVien sv = null;
@@ -62,4 +65,6 @@ public class SinhVienDAO {
         }
         return sv;
     }
+
+
 }
