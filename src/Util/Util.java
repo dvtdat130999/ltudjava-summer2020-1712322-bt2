@@ -6,6 +6,9 @@ import Demo.ImportCSVTkb;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Util {
     public static void show()
@@ -66,6 +69,15 @@ public class Util {
         return false;
     }*/
 
+
+    public static String dateFormat(LocalDateTime a)
+    {
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+        String formattedDate = a.format(myFormatObj);
+
+        return formattedDate;
+    }
 
 
 

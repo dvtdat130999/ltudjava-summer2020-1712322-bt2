@@ -27,7 +27,8 @@
         <mapping class="DTO.SinhVien_Mon"/>
         <mapping class="DTO.DiemSinhVien"/>
         <mapping class="DTO.NguoiDung"/>
-
+        <mapping class="DTO.PhucKhaoDiem"/>
+        <mapping class="DTO.PhucKhaoSinhVien"/>
 
     </session-factory>
 </hibernate-configuration>

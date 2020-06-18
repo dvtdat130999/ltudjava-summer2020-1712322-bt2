@@ -157,6 +157,23 @@ public class DiemSinhVien {
         return res;
     }
 
+    public static DiemSinhVien DiemMotSinhVienMotLop(String tenLop, String maMon,String nam,int hocKy,int mssv)
+    {
+        List<DiemSinhVien>dsv= DiemSinhVienDAO.listDiemSinhVien();
+        DiemSinhVien res=new DiemSinhVien();
+        for(DiemSinhVien a:dsv)
+        {
+            if( Util.Util.stringCompare(a.getLop(),tenLop)==0
+                    &&Util.Util.stringCompare(a.getMaMon(),maMon)==0
+                    && Util.Util.stringCompare(a.getNam(),nam)==0 && a.getHocKy()==hocKy
+                    && mssv==a.getMssv())
+            {
+                res=a;
+            }
+        }
+
+        return res;
+    }
     public static List listSinhVienDau(String tenLop, String maMon,String nam,int hocKy)
     {
         List<DiemSinhVien>dsv=listDiemSinhVien(tenLop,maMon,nam,hocKy);

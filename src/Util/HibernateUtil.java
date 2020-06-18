@@ -23,6 +23,9 @@ public class HibernateUtil {
             configuration.addAnnotatedClass(SinhVien_Mon.class);
             configuration.addAnnotatedClass(DiemSinhVien.class);
             configuration.addAnnotatedClass(NguoiDung.class);
+            configuration.addAnnotatedClass(PhucKhaoDiem.class);
+            configuration.addAnnotatedClass(PhucKhaoSinhVien.class);
+
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 
 

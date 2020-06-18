@@ -2,27 +2,29 @@ package DAO;
 
 import DTO.DiemSinhVien;
 import DTO.Lop;
-import DTO.NguoiDung;
+import DTO.Lop_MonHoc;
+import DTO.PhucKhaoSinhVien;
 import Util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DiemSinhVienDAO {
-
+public class PhucKhaoSinhVienDAO {
     private static SessionFactory factory;
-    public static void addDiemSinhVien(DiemSinhVien dsv) {
+
+    public static void addPhucKhaoSinhVien(PhucKhaoSinhVien pksv) {
         // get session factory
         factory = HibernateUtil.getSessionFactory();
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(dsv);
+            session.save(pksv);
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null)
@@ -33,59 +35,42 @@ public class DiemSinhVienDAO {
         }
     }
 
-    public static List listDiemSinhVien() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;
-        List dsv=null;
-        try{
-            tx = session.beginTransaction();
-            dsv = session.createQuery("FROM DiemSinhVien").list();
+    public static List listPhucKhaoSinhVien() {
+        List listLopMon=new ArrayList<Lop_MonHoc>();
 
-            tx.commit();
+        Session session = HibernateUtil.getSessionFactory()
+                .openSession();
+        try {
+
+            listLopMon=session.createQuery("FROM PhucKhaoSinhVien").list();
 
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
-        return dsv;
+        return listLopMon;
     }
 
-    public static void updateDiemSinhVien(DiemSinhVien a )
+    public static void updatePhucKhaoSinhVien(PhucKhaoSinhVien a)
     {
+        PhucKhaoSinhVienDAO.deletePhucKhaoSinhVien(a);
         Scanner sc=new Scanner(System.in);
-        System.out.print("Điểm giữa kỳ:");
-        double gk=sc.nextDouble();
-        System.out.print("Điểm cuối kỳ:");
-        double ck=sc.nextDouble();
-        System.out.print("Điểm khác:");
-        double k=sc.nextDouble();
-        System.out.print("Điểm tổng:");
-        double tong=sc.nextDouble();
-        deleteDiemSinhVien(a);
-        a.setDiemGk(gk);
-        a.setDiemCk(ck);
-        a.setDiemKhac(k);
-        a.setDiemTong(tong);
-        if(a.getDiemTong()>=5)
-        {
-            a.setKetQua("Đậu");
-        }
-        else
-        {
-            a.setKetQua("Rớt");
-        }
-        DiemSinhVienDAO.addDiemSinhVien(a);
-        System.out.println("Update thành công");
+        System.out.println("Nhập tình trạng phúc khảo:");
+        String tinhTrang=sc.nextLine();
+        a.setTinhTrang(tinhTrang);
+        PhucKhaoSinhVienDAO.addPhucKhaoSinhVien(a);
+        System.out.println("Cập nhật tình trạng thành công");
+
     }
 
-    public static void deleteDiemSinhVien(DiemSinhVien diem) {
+    public static void deletePhucKhaoSinhVien(PhucKhaoSinhVien pk) {
         Session session = HibernateUtil.getSessionFactory()
                 .openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.delete(diem);
+            session.delete(pk);
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null)
@@ -95,5 +80,6 @@ public class DiemSinhVienDAO {
             session.close();
         }
     }
+
 
 }

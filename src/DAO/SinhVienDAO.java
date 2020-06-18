@@ -63,6 +63,22 @@ public class SinhVienDAO {
         }
         return sv;
     }
+    public static List searchSinhVienByTen(String hoTen) {
+        List listSinhVien = null;
+        Session session = HibernateUtil.getSessionFactory()
+                .openSession();
+        try {
+            String hql="FROM SinhVien where hoTen='"+hoTen+"'";
+            listSinhVien=session.createQuery(hql).list();
+
+        } catch (HibernateException ex) {
+            //Log the exception
+            System.err.println(ex);
+        } finally {
+            session.close();
+        }
+        return listSinhVien;
+    }
 
 
 }

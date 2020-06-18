@@ -7,63 +7,19 @@ import DAO.*;
 import Util.Util;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Demo {
     private static boolean isLogin=false;
 
-    public static void main(String[] args) throws IOException {
-        /*List<Lop> listLop=LopDAO.listLop();
-        for(Lop a: listLop)
-        {
-            System.out.println("Lop:" + a.getTenLop());
-            System.out.println("");
+    public static void main(String[] args) throws IOException, ParseException {
 
-            for(SinhVien b: a.getSinhVien())
-            {
-                System.out.println("MSSV: "+ b.getMssv());
-                System.out.println("Ten: "+ b.getHoTen());
-                System.out.println("Gioi tinh: "+ b.getGioiTinh());
-                System.out.println("CMND: "+ b.getCmnd());
-
-                System.out.println("");
-
-            }
-        }*/
-        /*List<SinhVien> ds=SinhVienDAO.listSinhVien();
-        for(int i=0; i<ds.size(); i++){
-            SinhVien sv=ds.get(i);
-            System.out.println("MSSV: "+sv.getMssv());
-            System.out.println("Họ và tên: "+sv.getHoTen());
-            System.out.println("Gioi tinh: "+sv.getGioiTinh());
-            System.out.println("CMND: "+sv.getCmnd());
-
-        }*/
-        /*SinhVien check=SinhVienDAO.searchSinhVien(1712322);
-        Lop lopCheck=check.getLop();
-        SinhVien addnewsv=new SinhVien(1713333,"Khong co","Khong ro","0123123123",lopCheck);
-
-        System.out.println("Lop: "+lopCheck.getTenLop());*/
-        /*List listLop=LopDAO.listLop();
-        for(int i=0;i<listLop.size();i++)
-        {
-            Lop a=(Lop)listLop.get(i);
-            System.out.println("Lop: "+a.getTenLop());
-
-        }*/
-        /*Lop a=ImportCSV.ReadCsvFile("lop1.csv");
-        System.out.println("Lop: "+a.getTenLop());
-        List<SinhVien>sv=a.getSinhVien();
-        for(SinhVien s: sv)
-        {
-            System.out.println("MSSV: "+s.getMssv());
-            System.out.println("Họ và tên: "+s.getHoTen());
-            System.out.println("Gioi tinh: "+s.getGioiTinh());
-            System.out.println("CMND: "+s.getCmnd());
-        }*/
 
         //yeu cau 1
-        /*Lop a=ImportCSVLop.ReadCsvFile("lop1.csv");
+        /*Lop a=ImportCSVLop.ReadCsvFile("lop2.csv");
         LopDAO.addLop(a);
         List<SinhVien>sv=SinhVien.listSinhVienLop(a.getTenLop());
         for(SinhVien b:sv)
@@ -91,7 +47,7 @@ public class Demo {
         //yeu cau 3
         //import file thoi khoa bieu
 
-        /*ThoiKhoaBieu tkb=ImportCSVTkb.ReadCsvFile("tkb2.csv");
+        /*ThoiKhoaBieu tkb=ImportCSVTkb.ReadCsvFile("tkb1.csv");
         List<MonHoc>mon=tkb.getMon();
 
         //add mon hoc vao database
@@ -116,6 +72,7 @@ public class Demo {
         }
 
 
+        //add mon hoc cua tung sinh vien vao database
         List<SinhVien>sv=SinhVien.listSinhVienLop(tkb.getLop());
         for(SinhVien a: sv)
         {
@@ -146,14 +103,13 @@ public class Demo {
             System.out.println("CMND: "+a.getCmnd());
             System.out.println("");
         }*/
-        /*SinhVien_Lop_Mon lm=ImportCSVLopMon.ReadCsvFile("lop2_mon1.csv");
-        List<SinhVien>sv=lm.getSinhVien();*/
+
 
         //yeu cau 4
         //Xoa bo 1 mon hoc cua sinh vien, them vao 1 sinh vien
         /*SinhVien_Mon sm1=new SinhVien_Mon(1742005,"CTT001","18HCB");
-        SinhVien_MonDAO.addSinhVienMon(sm1);*/
-        /*SinhVien_Mon sm2=new SinhVien_Mon(1842001,"CTT001","18HCB");
+        SinhVien_MonDAO.addSinhVienMon(sm1);
+        SinhVien_Mon sm2=new SinhVien_Mon(1842001,"CTT001","18HCB");
         SinhVien_MonDAO.deleteSinhVienMon(sm2);*/
 
         //yeu cau 5
@@ -243,10 +199,10 @@ public class Demo {
         //xem tat ca sinh vien dau va rot nhu tren
 
         //xem cac sinh vien dau
-        String lop="18HCB";
+        /*String lop="18HCB";
         String mon="CTT001";
         String nam="2019-2020";
-        int hocKy=1;
+        int hocKy=1;*/
         /*List<DiemSinhVien>dsv=DiemSinhVien.listSinhVienDau(lop,mon,nam,hocKy);
         for(DiemSinhVien a:dsv)
         {
@@ -267,6 +223,18 @@ public class Demo {
 /*
         DiemSinhVien.thongKeDauRot(lop,mon,nam,hocKy);
 */
+        //yeu cau 9
+        /*List<SinhVien> test=SinhVienDAO.searchSinhVienByTen("Hồ Thị E");
+        Demo.printSinhVien(test.get(0));*/
+        /*DiemSinhVienDAO.updateDiemSinhVien("18HCB","CTT001",
+                                    "2019-2020",1,1742005);*/
+
+       /* DiemSinhVien a=DiemSinhVien.DiemMotSinhVienMotLop("18HCB","CTT001",
+                "2019-2020",1,1742005);*/
+/*
+        Demo.printDiemSinhVien(a);
+*/
+        /*DiemSinhVienDAO.updateDiemSinhVien(a);*/
 
         //yeu cau 11
         //giao vu
@@ -277,13 +245,125 @@ public class Demo {
         /*NguoiDung a=Demo.nhapTaiKhoanVaMatKhau();
         Demo.DangNhap(a);*/
 
+        //yeu cau 12
         //doi mat khau
 /*
         Demo.DoiMatKhau();
 */
+        //yeu cau 13
+        //tao phuc khao diem
+        /*PhucKhaoDiem pkd=Demo.taoPhucKhaoDiem();
+        PhucKhaoDiemDAO.addPhucKhaoDiem(pkd);*/
+
+
+        //yeu cau 14,15
+        /*PhucKhaoSinhVien pksv=Demo.taoPhucKhaoSinhVien();
+        PhucKhaoSinhVienDAO.addPhucKhaoSinhVien(pksv);*/
+        /*List<PhucKhaoSinhVien> test=PhucKhaoSinhVienDAO.listPhucKhaoSinhVien();
+        for(PhucKhaoSinhVien a:test)
+        {
+            printPhucKhaoSinhVien(a);
+        }*/
+        PhucKhaoSinhVien test=PhucKhaoSinhVien.searchByMssvMonCotDiem(1742005,"Lập trình ứng dụng Java",1);
+        PhucKhaoSinhVienDAO.updatePhucKhaoSinhVien(test);
 
     }
 
+    public static PhucKhaoDiem taoPhucKhaoDiem() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+
+
+        System.out.println("Ngày bắt đầu:");
+
+        System.out.print("Ngày:");
+        Scanner sc=new Scanner(System.in);
+        String ngay=sc.nextLine();
+        System.out.print("Tháng:");
+        String thang=sc.nextLine();
+        System.out.print("Năm:");
+        String nam=sc.nextLine();
+
+        String firstDate=ngay+"-"+thang+"-"+nam;
+        Date date1=sdf.parse(firstDate);
+        System.out.println("Ngày kết thúc:");
+
+        System.out.print("Ngày:");
+        ngay=sc.nextLine();
+        System.out.print("Tháng:");
+        thang=sc.nextLine();
+        System.out.print("Năm:");
+        nam=sc.nextLine();
+        String secondDate=ngay+"-"+thang+"-"+nam;
+
+        Date date2=sdf.parse(secondDate);
+        PhucKhaoDiem pkd=new PhucKhaoDiem(date1,date2);
+        return pkd;
+    }
+
+    public static PhucKhaoSinhVien taoPhucKhaoSinhVien()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Nhập thông tin phúc khảo:");
+        System.out.println("MSSV:");
+        int mssv=sc.nextInt();
+        sc.nextLine();
+
+        System.out.println("Họ tên:");
+        String hoTen=sc.nextLine();
+        System.out.println("Môn:");
+        String mon=sc.nextLine();
+        System.out.println("Cột điểm cần phúc khảo, 1 cho giữa kỳ, 2 cho cuối kỳ" +
+                            ", 3 cho điểm khác, 4 cho điểm tổng:");
+        int cot=sc.nextInt();
+
+        System.out.println("Điểm mong muốn:");
+        double diemMongMuon=sc.nextDouble();
+        sc.nextLine();
+
+        System.out.println("Lý do, rõ ràng cụ thể:");
+        String lyDo=sc.nextLine();
+
+        PhucKhaoSinhVien pksv=new PhucKhaoSinhVien(mssv,hoTen,mon,cot,diemMongMuon,lyDo,"Chưa xem");
+        return pksv;
+
+
+
+    }
+
+    public static void printPhucKhaoSinhVien(PhucKhaoSinhVien a)
+    {
+        System.out.println("MSSV: "+a.getMssv());
+        System.out.println("Họ tên: "+a.getHoTen());
+        System.out.println("Môn: "+a.getMon());
+        String cot=null;
+        if(a.getCotDiem()==1)
+        {
+            cot="Điểm giữa kỳ";
+
+        }
+        if(a.getCotDiem()==2)
+        {
+            cot="Điểm cuối kỳ";
+
+        }
+        if(a.getCotDiem()==3)
+        {
+            cot="Điểm khác";
+
+        }
+        if(a.getCotDiem()==4)
+        {
+            cot="Điểm tổng";
+
+        }
+
+
+        System.out.println("Cột điểm: "+cot);
+        System.out.println("Điểm mong muốn: "+a.getDiemMongMuon());
+        System.out.println("Lý do: "+a.getLyDo());
+        System.out.println("Tình trạng: "+a.getTinhTrang());
+
+    }
     public static void printSinhVien(SinhVien a)
     {
         System.out.println("MSSV: "+a.getMssv());
