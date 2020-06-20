@@ -28,15 +28,8 @@ public class LopController {
     }
     public static void createGUI()
     {
-        LopView lopView=new LopView();
-        JPanel root=lopView.getPanel_main();
-        JFrame frame=new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(root);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
+        new LopView();
 
-        frame.setVisible(true);
     }
     //lop AddStudentListener cho su kien click "Add"
     /*class AddStudentListener implements ActionListener {

@@ -21,13 +21,6 @@ public class DangNhapController {
     }
     public static void createGUI()
     {
-        DangNhapView dangNhapView=new DangNhapView();
-        JPanel root=dangNhapView.getPanel_main();
-        JFrame frame=new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(root);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        new DangNhapView();
     }
 }

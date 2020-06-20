@@ -1,5 +1,6 @@
 package View;
 
+import Controller.DangNhapController;
 import DAO.LopDAO;
 import DAO.MonHocDAO;
 import DAO.SinhVienDAO;
@@ -87,6 +88,15 @@ public class LopView {
 
     public void  createTable()
     {
+
+        JPanel root=this.getPanel_main();
+        JFrame frame=new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setContentPane(root);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+
+        frame.setVisible(true);
 
         //mac dinh cho index=0
         lopDuocChon = "" + cb_lop.getItemAt(
@@ -192,7 +202,13 @@ public class LopView {
                 ));
             }
         });
-
+        btn_dx.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                DangNhapController.createGUI();
+            }
+        });
     }
 
     public String[][] parseSinhVienToListString(List<SinhVien> sv)

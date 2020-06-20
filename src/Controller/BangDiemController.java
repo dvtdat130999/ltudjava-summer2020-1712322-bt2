@@ -13,14 +13,6 @@ public class BangDiemController {
 
     public static void createGUI()
     {
-        BangDiemView bangDiemView=new BangDiemView();
-        JPanel root=bangDiemView.getPanel_main();
-        JFrame frame=new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(root);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-
-        frame.setVisible(true);
+        new BangDiemView();
     }
 }

@@ -1,9 +1,6 @@
 package Demo;
 
-import Controller.BangDiemController;
-import Controller.DangNhapController;
-import Controller.LopController;
-import Controller.ThoiKhoaBieuController;
+import Controller.*;
 import DAO.LopDAO;
 import DTO.*;
 
@@ -202,7 +199,9 @@ public class Demo {
 
         //yeu cau 8
         //xem lai bang diem theo lop, mon, hoc ky, nam
+/*
         BangDiemController.createGUI();
+*/
         /*String lop="18HCB";
         String mon="CTT001";
         String nam="2019-2020";
@@ -258,12 +257,19 @@ public class Demo {
 */
         /*DiemSinhVienDAO.updateDiemSinhVien(a);*/
 
+        //yeu cau 10
+/*
+        SinhVienXemDiemController.createGUI(new NguoiDung("1742005","1742005"));
+*/
         //yeu cau 11
         //giao vu
         /*NguoiDung nd=new NguoiDung("giaovu","giaovu");
         NguoiDungDAO.addNguoiDung(nd);*/
 
         //dang nhap
+/*
+        DangNhapController.createGUI();
+*/
         /*NguoiDung a=Demo.nhapTaiKhoanVaMatKhau();
         Demo.DangNhap(a);*/
 /*
@@ -271,6 +277,9 @@ public class Demo {
 */
         //yeu cau 12
         //doi mat khau
+/*
+        DoiMatKhauController.createGUI();
+*/
 /*
         Demo.DoiMatKhau();
 */
@@ -290,6 +299,8 @@ public class Demo {
         }*/
         /*PhucKhaoSinhVien test=PhucKhaoSinhVien.searchByMssvMonCotDiem(1742005,"Lập trình ứng dụng Java",1);
         PhucKhaoSinhVienDAO.updatePhucKhaoSinhVien(test);*/
+
+        BangDiemController.createGUI();
 
     }
 

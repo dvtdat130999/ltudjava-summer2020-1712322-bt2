@@ -2,6 +2,7 @@ package DTO;
 
 
 import DAO.DiemSinhVienDAO;
+import Util.Util;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -160,9 +161,9 @@ public class DiemSinhVien {
         List<DiemSinhVien>res=new ArrayList<>();
         for(DiemSinhVien a:dsv)
         {
-            if( Util.Util.stringCompare(a.getLop(),tenLop)==0
-                    &&Util.Util.stringCompare(a.getMaMon(),maMon)==0
-                    && Util.Util.stringCompare(a.getNam(),nam)==0 && a.getHocKy()==hocKy)
+            if( Util.stringCompare(a.getLop(),tenLop)==0
+                    && Util.stringCompare(a.getMaMon(),maMon)==0
+                    && Util.stringCompare(a.getNam(),nam)==0 && a.getHocKy()==hocKy)
             {
                 res.add(a);
             }
@@ -171,15 +172,64 @@ public class DiemSinhVien {
         return res;
     }
 
+    public static List DiemMotSinhVien(String nam,int hocKy,int mssv)
+    {
+        List<DiemSinhVien>diemSinhVienList=DiemSinhVienDAO.listDiemSinhVien();
+        List<DiemSinhVien>res=new ArrayList<>();
+        for(DiemSinhVien a:diemSinhVienList)
+        {
+            if(Util.stringCompare(nam,a.getNam())==0 &&hocKy==a.getHocKy() &&mssv==a.getMssv())
+            {
+                res.add(a);
+            }
+        }
+        return res;
+    }
+
+    public static List DiemMotSinhVienTheoKetQua(String nam,int hocKy,int mssv,String ketQua)
+    {
+        List<DiemSinhVien>diemSinhVienList=DiemSinhVienDAO.listDiemSinhVien();
+        List<DiemSinhVien>res=new ArrayList<>();
+        for(DiemSinhVien a:diemSinhVienList)
+        {
+            if(Util.stringCompare(nam,a.getNam())==0 &&hocKy==a.getHocKy() &&mssv==a.getMssv()
+                && Util.stringCompare(ketQua,a.getKetQua())==0)
+            {
+                res.add(a);
+            }
+        }
+        return res;
+    }
+
+    public static DiemSinhVien DiemMotSinhVienTheoKetQuaLopMon(String tenLop, String maMon,String nam,int hocKy,int mssv,String ketQua)
+    {
+        DiemSinhVien dsv=DiemMotSinhVienMotLop(tenLop,maMon,nam,hocKy,mssv);
+        DiemSinhVien test=new DiemSinhVien();
+        if(dsv==test)
+        {
+            return test;
+        }
+        else
+        {
+            if(Util.stringCompare(dsv.getKetQua(),ketQua)==0)
+            {
+                return dsv;
+            }
+            else
+                return test;
+        }
+
+
+    }
     public static DiemSinhVien DiemMotSinhVienMotLop(String tenLop, String maMon,String nam,int hocKy,int mssv)
     {
         List<DiemSinhVien>dsv= DiemSinhVienDAO.listDiemSinhVien();
         DiemSinhVien res=new DiemSinhVien();
         for(DiemSinhVien a:dsv)
         {
-            if( Util.Util.stringCompare(a.getLop(),tenLop)==0
-                    &&Util.Util.stringCompare(a.getMaMon(),maMon)==0
-                    && Util.Util.stringCompare(a.getNam(),nam)==0 && a.getHocKy()==hocKy
+            if( Util.stringCompare(a.getLop(),tenLop)==0
+                    && Util.stringCompare(a.getMaMon(),maMon)==0
+                    && Util.stringCompare(a.getNam(),nam)==0 && a.getHocKy()==hocKy
                     && mssv==a.getMssv())
             {
                 res=a;
@@ -222,7 +272,7 @@ public class DiemSinhVien {
         List<DiemSinhVien>res=new ArrayList<>();
         for(DiemSinhVien a:dsv)
         {
-            if(Util.Util.stringCompare(ketQua,a.getKetQua())==0)
+            if(Util.stringCompare(ketQua,a.getKetQua())==0)
                 res.add(a);
 
         }
@@ -261,7 +311,7 @@ public class DiemSinhVien {
         double count=dsv.size();
         for(DiemSinhVien a:dsv)
         {
-            if(Util.Util.stringCompare(a.getKetQua(),"Đậu")==0)
+            if(Util.stringCompare(a.getKetQua(),"Đậu")==0)
             {
                 countDau=countDau+1;
             }

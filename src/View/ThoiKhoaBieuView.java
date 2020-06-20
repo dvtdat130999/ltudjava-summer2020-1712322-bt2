@@ -1,5 +1,6 @@
 package View;
 
+import Controller.DangNhapController;
 import DAO.LopDAO;
 import DTO.Lop;
 import DTO.MonHoc;
@@ -56,6 +57,13 @@ public class ThoiKhoaBieuView {
 
     public void createTable()
     {
+        JPanel root=getPanel_main();
+        JFrame frame=new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setContentPane(root);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
         //mac dinh cho index=0
         //danh sach mon hoc theo lop
         lopDuocChon = "" + cb_lop.getItemAt(
@@ -77,6 +85,13 @@ public class ThoiKhoaBieuView {
             }
         });
 
+        btn_dx.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                DangNhapController.createGUI();
+            }
+        });
     }
 
     public String[][] parseMonToListString(List<MonHoc> mh)

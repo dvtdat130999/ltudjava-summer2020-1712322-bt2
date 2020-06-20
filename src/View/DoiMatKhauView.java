@@ -1,6 +1,10 @@
 package View;
 
+import Controller.DangNhapController;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class DoiMatKhauView {
     private JPanel panel_main;
@@ -21,7 +25,20 @@ public class DoiMatKhauView {
 
     public DoiMatKhauView()
     {
-
+        JPanel root=this.getPanel_main();
+        JFrame frame=new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setContentPane(root);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        btn_dx.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                DangNhapController.createGUI();
+            }
+        });
     }
 
 

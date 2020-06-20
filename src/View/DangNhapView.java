@@ -1,6 +1,7 @@
 package View;
 
 import Controller.LopController;
+import Controller.SinhVienXemDiemController;
 import DAO.NguoiDungDAO;
 import DTO.NguoiDung;
 
@@ -11,13 +12,6 @@ import java.awt.event.ActionListener;
 public class DangNhapView {
 
 
-    private JButton btn_dmk;
-    private JButton btn_dx;
-    private JButton btn_import;
-    private JButton btn_qll;
-    private JButton btn_qllm;
-    private JButton btn_tkb;
-    private JButton btn_diem;
     private JLabel label_tk;
     private JTextField tf_tk;
     private JLabel label_mk;
@@ -26,6 +20,12 @@ public class DangNhapView {
     private JPanel panel_main;
 
     public DangNhapView() {
+        JFrame frame=new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setContentPane(getPanel_main());
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
         btn_dn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -36,14 +36,21 @@ public class DangNhapView {
                 {
                     if(Util.Util.stringCompare(taiKhoan,"giaovu")==0)
                     {
+                        frame.setVisible(false);
+
                         LopController.createGUI();
-                        /*DangNhapView.setVisible(false);*/
                     }
                     if(Util.Util.stringCompare(taiKhoan,"giaovu")!=0)
                     {
-                        System.out.println("Sinh Vien dang nhap thanh cong");
-                        /*DangNhapView.setVisible(false);*/
+                        frame.setVisible(false);
+
+                        SinhVienXemDiemController.createGUI(new NguoiDung(taiKhoan,matKhau));
+
                     }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(frame,"Sai tài khoản hoặc mật khẩu");
                 }
 
             }

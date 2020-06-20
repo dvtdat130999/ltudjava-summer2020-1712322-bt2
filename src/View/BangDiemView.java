@@ -1,5 +1,6 @@
 package View;
 
+import Controller.DangNhapController;
 import DAO.DiemSinhVienDAO;
 import DAO.LopDAO;
 import DAO.MonHocDAO;
@@ -61,6 +62,7 @@ public class BangDiemView {
     Object column[] = { "MSSV", "Họ tên", "Điểm GK","Điểm CK","Điểm khác","Điểm tổng" };
     public BangDiemView()
     {
+
         //Lay ten lop cho JComboBox
         List<Lop> listLop= LopDAO.listLop();
 
@@ -113,6 +115,14 @@ public class BangDiemView {
 
     public void createTable()
     {
+        JPanel root=this.getPanel_main();
+        JFrame frame=new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setContentPane(root);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+
+        frame.setVisible(true);
         //mac dinh cho index=0
         lopDuocChon = "" + cb_lop.getItemAt(
                 cb_lop.getSelectedIndex());
@@ -122,6 +132,7 @@ public class BangDiemView {
         diemSinhVienList=DiemSinhVien.listDiemSinhVien(lopDuocChon,monDuocChon,namDuocChon,Integer.parseInt(hocKyDuocChon));
         data=parseDiemSinhVienToListString(diemSinhVienList);
         table_diem.setModel(new DefaultTableModel(data,column));
+
 
         //action khi nhan nut "Xem"
         btn_xem.addActionListener(new ActionListener() {
@@ -208,6 +219,15 @@ public class BangDiemView {
 
             }
         });
+
+        btn_dx.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                DangNhapController.createGUI();
+            }
+        });
+
     }
 
     public String[][] parseDiemSinhVienToListString(List<DiemSinhVien> sv)
