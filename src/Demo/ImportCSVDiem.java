@@ -50,14 +50,7 @@ public class ImportCSVDiem {
                 a.setNam(nam);
                 a.setHocKy(hocKy);
 
-                if(a.getDiemTong()>=5)
-                {
-                    a.setKetQua("Đậu");
-                }
-                else
-                {
-                    a.setKetQua("Rớt");
-                }
+
                 dsv.add(a);
 
             }

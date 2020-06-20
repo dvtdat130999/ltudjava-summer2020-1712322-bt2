@@ -285,13 +285,13 @@
                   <component id="3d102" class="javax.swing.JButton" binding="btn_addsv">
                     <constraints/>
                     <properties>
-                      <text value="Add"/>
+                      <text value="Thêm"/>
                     </properties>
                   </component>
                   <component id="7b218" class="javax.swing.JButton" binding="btn_editsv">
                     <constraints/>
                     <properties>
-                      <text value="Edit"/>
+                      <text value="Sửa"/>
                     </properties>
                   </component>
                 </children>

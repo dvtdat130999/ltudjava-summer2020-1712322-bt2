@@ -1,7 +1,9 @@
 package Demo;
 
+import Controller.BangDiemController;
 import Controller.DangNhapController;
 import Controller.LopController;
+import Controller.ThoiKhoaBieuController;
 import DAO.LopDAO;
 import DTO.*;
 
@@ -120,7 +122,9 @@ public class Demo {
 
         //xem danh sach sinh vien trong lop
 
+/*
         LopController.createGUI();
+*/
         /*List<MonHoc>list=MonHocDAO.listMonHoc();
         for(MonHoc a:list)
         {
@@ -156,7 +160,9 @@ public class Demo {
         //yeu cau 6
 
         //lay tkb tu database
-
+/*
+        ThoiKhoaBieuController.createGUI();
+*/
         /*ThoiKhoaBieu test=new ThoiKhoaBieu();
         test.setLop("18HCB");
         List<MonHoc>mon=MonHoc.searchByLop(test.getLop());
@@ -196,7 +202,7 @@ public class Demo {
 
         //yeu cau 8
         //xem lai bang diem theo lop, mon, hoc ky, nam
-
+        BangDiemController.createGUI();
         /*String lop="18HCB";
         String mon="CTT001";
         String nam="2019-2020";

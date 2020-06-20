@@ -22,6 +22,15 @@ public class DiemSinhVienDAO {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
+            if(dsv.getKetQua()!="Đậu"&&dsv.getKetQua()!="Rớt")
+            {
+                if(dsv.getDiemTong()>=5)
+                {
+                    dsv.setKetQua("Đậu");
+                }
+                else
+                    dsv.setKetQua("Rớt");
+            }
             session.save(dsv);
             tx.commit();
         } catch (HibernateException e) {
@@ -53,31 +62,11 @@ public class DiemSinhVienDAO {
 
     public static void updateDiemSinhVien(DiemSinhVien a )
     {
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Điểm giữa kỳ:");
-        double gk=sc.nextDouble();
-        System.out.print("Điểm cuối kỳ:");
-        double ck=sc.nextDouble();
-        System.out.print("Điểm khác:");
-        double k=sc.nextDouble();
-        System.out.print("Điểm tổng:");
-        double tong=sc.nextDouble();
-        deleteDiemSinhVien(a);
-        a.setDiemGk(gk);
-        a.setDiemCk(ck);
-        a.setDiemKhac(k);
-        a.setDiemTong(tong);
-        if(a.getDiemTong()>=5)
-        {
-            a.setKetQua("Đậu");
-        }
-        else
-        {
-            a.setKetQua("Rớt");
-        }
-        DiemSinhVienDAO.addDiemSinhVien(a);
-        System.out.println("Update thành công");
+        DiemSinhVien temp=DiemSinhVien.DiemMotSinhVienMotLop(a.getLop(),a.getMaMon(),a.getNam(),a.getHocKy(),a.getMssv());
+        deleteDiemSinhVien(temp);
+        addDiemSinhVien(a);
     }
+
 
     public static void deleteDiemSinhVien(DiemSinhVien diem) {
         Session session = HibernateUtil.getSessionFactory()

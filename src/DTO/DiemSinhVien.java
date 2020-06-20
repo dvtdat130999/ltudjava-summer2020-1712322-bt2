@@ -51,6 +51,20 @@ public class DiemSinhVien {
         hoTen=lop=maMon=nam="";
     }
 
+    public DiemSinhVien(String maMon, int mssv, String hoTen, double diemGk, double diemCk, double diemKhac, double diemTong, String lop, String nam, int hocKy, String ketQua) {
+        this.maMon = maMon;
+        this.mssv = mssv;
+        this.hoTen = hoTen;
+        this.diemGk = diemGk;
+        this.diemCk = diemCk;
+        this.diemKhac = diemKhac;
+        this.diemTong = diemTong;
+        this.lop = lop;
+        this.nam = nam;
+        this.hocKy = hocKy;
+        this.ketQua = ketQua;
+    }
+
     public int getMssv() {
         return mssv;
     }
@@ -174,34 +188,68 @@ public class DiemSinhVien {
 
         return res;
     }
-    public static List listSinhVienDau(String tenLop, String maMon,String nam,int hocKy)
+
+    public static List listNam()
+    {
+        List<DiemSinhVien>dsv= DiemSinhVienDAO.listDiemSinhVien();
+        List<String>nam=new ArrayList<>();
+        for(DiemSinhVien a:dsv)
+        {
+            if(nam.contains(a.getNam())==false)
+            {
+                nam.add(a.getNam());
+            }
+        }
+        return nam;
+    }
+    public static List listHocKy()
+    {
+        List<DiemSinhVien>dsv= DiemSinhVienDAO.listDiemSinhVien();
+        List<Integer>hocKy=new ArrayList<>();
+        for(DiemSinhVien a:dsv)
+        {
+            if(hocKy.contains(a.getHocKy())==false)
+            {
+                hocKy.add(a.getHocKy());
+            }
+        }
+        return hocKy;
+
+    }
+    public static List listSinhVienTheoKetQua(String tenLop, String maMon,String nam,int hocKy,String ketQua)
     {
         List<DiemSinhVien>dsv=listDiemSinhVien(tenLop,maMon,nam,hocKy);
         List<DiemSinhVien>res=new ArrayList<>();
         for(DiemSinhVien a:dsv)
         {
-            if(Util.Util.stringCompare(a.getKetQua(),"Đậu")==0)
-            {
+            if(Util.Util.stringCompare(ketQua,a.getKetQua())==0)
                 res.add(a);
-            }
+
         }
         return res;
 
     }
 
-    public static List listSinhVienRot(String tenLop, String maMon,String nam,int hocKy)
+    public static double sinhVienDau(String tenLop, String maMon,String nam,int hocKy)
     {
-        List<DiemSinhVien>dsv=listDiemSinhVien(tenLop,maMon,nam,hocKy);
-        List<DiemSinhVien>res=new ArrayList<>();
-        for(DiemSinhVien a:dsv)
-        {
-            if(Util.Util.stringCompare(a.getKetQua(),"Rớt")==0)
-            {
-                res.add(a);
-            }
-        }
-        return res;
+        List<DiemSinhVien>dsv=listSinhVienTheoKetQua(tenLop,maMon,nam,hocKy,"Đậu");
+        return dsv.size();
+    }
 
+    public static double sinhVienRot(String tenLop, String maMon,String nam,int hocKy)
+    {
+        List<DiemSinhVien>dsv=listSinhVienTheoKetQua(tenLop,maMon,nam,hocKy,"Rớt");
+        return dsv.size();
+    }
+
+    public static double phanTramDau(String tenLop, String maMon,String nam,int hocKy)
+    {
+        return sinhVienDau(tenLop,maMon,nam,hocKy)/(listDiemSinhVien(tenLop,maMon,nam,hocKy).size())*100;
+    }
+
+    public static double phanTramRot(String tenLop, String maMon,String nam,int hocKy)
+    {
+        return sinhVienRot(tenLop,maMon,nam,hocKy)/(listDiemSinhVien(tenLop,maMon,nam,hocKy).size())*100;
     }
     public static void thongKeDauRot(String tenLop, String maMon,String nam,int hocKy)
     {
