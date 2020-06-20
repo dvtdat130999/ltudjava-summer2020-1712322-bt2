@@ -1,5 +1,6 @@
 package DAO;
 
+import DTO.Lop;
 import DTO.MonHoc;
 import DTO.SinhVien;
 import Util.HibernateUtil;
@@ -48,19 +49,20 @@ public class MonHocDAO {
         return listMonHoc;
     }
 
-    public static MonHoc searchMonHoc(String maMon) {
-        MonHoc monHoc = null;
+    public static MonHoc searchMon(String maMon)
+    {
+        MonHoc mon = null;
         Session session = HibernateUtil.getSessionFactory()
                 .openSession();
         try {
-            monHoc = (MonHoc) session.get(MonHoc.class, maMon);
+            mon = (MonHoc) session.get(MonHoc.class, maMon);
         } catch (HibernateException ex) {
             //Log the exception
             System.err.println(ex);
         } finally {
             session.close();
         }
-        return monHoc;
+        return mon;
     }
 
 }

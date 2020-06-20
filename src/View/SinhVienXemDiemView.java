@@ -1,6 +1,6 @@
 package View;
 
-import Controller.DangNhapController;
+import Controller.*;
 import DAO.LopDAO;
 import DAO.MonHocDAO;
 import DTO.DiemSinhVien;
@@ -22,7 +22,6 @@ public class SinhVienXemDiemView {
     private JButton btn_dmk;
     private JButton btn_dx;
     private JButton btn_diem;
-    private JButton btn_tgpk;
     private JButton btn_pk;
     private JButton btn_tkb;
     private JPanel panel_dslop;
@@ -193,6 +192,37 @@ public class SinhVienXemDiemView {
                 DangNhapController.createGUI();
             }
         });
+
+        btn_dmk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                SinhVienDoiMatKhauController.createGUI(nguoiDung);
+            }
+        });
+        btn_diem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                SinhVienXemDiemController.createGUI(nguoiDung);
+            }
+        });
+
+        btn_tkb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                SinhVienXemTkbController.createGUI(nguoiDung);
+            }
+        });
+        btn_pk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                SinhVienPhucKhaoController.createGUI(nguoiDung);
+            }
+        });
+
     }
 
     public String[][] parseDiemSinhVienToListString(List<DiemSinhVien> sv)

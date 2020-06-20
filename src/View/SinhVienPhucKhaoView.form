@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.SinhVienPhucKhaoView">
+  <grid id="27dc6" binding="panel_main" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="73682" binding="panel_menu" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="61f07" layout-manager="GridBagLayout">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="4d706" class="javax.swing.JButton" binding="btn_dmk">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <background color="-855310"/>
+                  <borderPainted value="false"/>
+                  <text value="Đổi mật khẩu"/>
+                </properties>
+              </component>
+              <hspacer id="80aae">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="30.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <component id="462cf" class="javax.swing.JButton" binding="btn_dx">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <background color="-855310"/>
+                  <borderPainted value="false"/>
+                  <text value="Đăng xuất"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="67c55" layout-manager="GridBagLayout">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="600b0" class="javax.swing.JButton" binding="btn_diem">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="1.0"/>
+                </constraints>
+                <properties>
+                  <borderPainted value="false"/>
+                  <text value="Điểm"/>
+                </properties>
+              </component>
+              <component id="b789f" class="javax.swing.JButton" binding="btn_pk">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="1.0"/>
+                </constraints>
+                <properties>
+                  <borderPainted value="false"/>
+                  <text value="Phúc khảo"/>
+                </properties>
+              </component>
+              <component id="3648c" class="javax.swing.JButton" binding="btn_tkb">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="1.0"/>
+                </constraints>
+                <properties>
+                  <borderPainted value="false"/>
+                  <text value="Thời khóa biểu"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="4620c" binding="panel_pk" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="73e69" layout-manager="GridBagLayout">
+            <constraints border-constraint="Center"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="be827" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="19ff" class="javax.swing.JLabel" binding="label_mssv">
+                    <constraints border-constraint="West"/>
+                    <properties>
+                      <text value="MSSV:             "/>
+                    </properties>
+                  </component>
+                  <component id="f5d1b" class="javax.swing.JTextField" binding="tf_mssv">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <columns value="10"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="d9706" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="bfc2b" class="javax.swing.JLabel" binding="label_ht">
+                    <constraints border-constraint="West"/>
+                    <properties>
+                      <text value="Họ tên:           "/>
+                    </properties>
+                  </component>
+                  <component id="c5a4c" class="javax.swing.JTextField" binding="tf_ht">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <columns value="10"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="dd58d" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="a1967" class="javax.swing.JLabel" binding="label_mon">
+                    <constraints border-constraint="West"/>
+                    <properties>
+                      <text value="Môn:               "/>
+                    </properties>
+                  </component>
+                  <component id="ca63b" class="javax.swing.JTextField" binding="tf_mon">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <columns value="10"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="f882b" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="c2142" class="javax.swing.JLabel" binding="label_cd">
+                    <constraints border-constraint="West"/>
+                    <properties>
+                      <text value="Cột điểm:      "/>
+                    </properties>
+                  </component>
+                  <component id="20adf" class="javax.swing.JComboBox" binding="cb_cd">
+                    <constraints border-constraint="Center"/>
+                    <properties/>
+                  </component>
+                </children>
+              </grid>
+              <grid id="9010e" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="fd3c1" class="javax.swing.JLabel" binding="label_dmm">
+                    <constraints border-constraint="West"/>
+                    <properties>
+                      <text value="Điểm mong muốn:"/>
+                    </properties>
+                  </component>
+                  <component id="2ecf6" class="javax.swing.JTextField" binding="tf_dmm">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <columns value="11"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="82766" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="20403" class="javax.swing.JLabel" binding="label_ld">
+                    <constraints border-constraint="West"/>
+                    <properties>
+                      <text value="Lý do:               "/>
+                    </properties>
+                  </component>
+                  <component id="ce288" class="javax.swing.JTextField" binding="tf_ld">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <columns value="30"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="a47f2" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="1119c" class="javax.swing.JButton" binding="btn_guipk">
+                    <constraints/>
+                    <properties>
+                      <text value="Gửi"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

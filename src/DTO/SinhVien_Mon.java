@@ -1,6 +1,10 @@
 package DTO;
 
+import DAO.SinhVien_MonDAO;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "sinhvien_mon", catalog = "studentmanagement")
@@ -50,5 +54,54 @@ public class SinhVien_Mon {
 
     public void setTenLop(String tenLop) {
         this.tenLop = tenLop;
+    }
+
+    public static SinhVien_Mon searchByMssvMaMon(int mssv,String maMon)
+    {
+        List<SinhVien_Mon>list= SinhVien_MonDAO.listSinhVienMon();
+        SinhVien_Mon res=new SinhVien_Mon();
+        for(SinhVien_Mon a:list)
+        {
+            if(Util.Util.stringCompare(a.getMaMon(),maMon)==0 && a.getMssv()==mssv)
+            {
+                res=a;
+            }
+        }
+        return res;
+    }
+
+    public static List listMonHocSinhVienTheoNamHocKy(int mssv,String nam,int hocKy)
+    {
+        //tim cac mon hoc theo nam, hoc ky
+        List<MonHoc>listMon=MonHoc.searchByNamHocKy(nam,hocKy);
+
+        //lay cac ma mon cua cac mon hoc vua tim duoc
+        List<String>maMon=new ArrayList<>();
+        for(MonHoc a:listMon)
+        {
+            if(maMon.contains(a.getMa())==false)
+            {
+                maMon.add(a.getMa());
+
+            }
+            else
+            {
+
+            }
+        }
+
+        //lấy từ bảng sinhvien-mon ta được các mã môn của các môn sinh viên theo học trong học kỳ
+        List<SinhVien_Mon>sinhVien_mons=new ArrayList<>();
+
+        for(String mon:maMon)
+        {
+            SinhVien_Mon sinhVien_mon=SinhVien_Mon.searchByMssvMaMon(mssv,mon);
+            if(sinhVien_mon.getMssv()!=0)
+            {
+                sinhVien_mons.add(sinhVien_mon);
+
+            }
+        }
+        return sinhVien_mons;
     }
 }

@@ -2,25 +2,135 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.DoiMatKhauView">
   <grid id="27dc6" binding="panel_main" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="603" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="c0ac2" binding="panel_menu" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="9e53f" binding="panel_dmk" layout-manager="GridBagLayout">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="e16a3" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <alignmentX value="1.0"/>
+              <alignmentY value="1.0"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="74de3" class="javax.swing.JLabel" binding="label_tk">
+                <constraints/>
+                <properties>
+                  <text value="Tài khoản:   "/>
+                </properties>
+              </component>
+              <component id="10a96" class="javax.swing.JTextField" binding="tf_tk">
+                <constraints/>
+                <properties>
+                  <columns value="15"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <hspacer id="c0bed">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+          </hspacer>
+          <grid id="ed6b6" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="cf9db" class="javax.swing.JLabel" binding="label_mkc">
+                <constraints/>
+                <properties>
+                  <alignmentX value="1.0"/>
+                  <alignmentY value="1.0"/>
+                  <text value="Mật khẩu cũ:  "/>
+                </properties>
+              </component>
+              <component id="6312e" class="javax.swing.JPasswordField" binding="pf_mkc">
+                <constraints/>
+                <properties>
+                  <columns value="16"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="75466" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="99571" class="javax.swing.JLabel" binding="label_mkm">
+                <constraints/>
+                <properties>
+                  <text value="Mật khẩu mới:"/>
+                </properties>
+              </component>
+              <component id="4ad47" class="javax.swing.JPasswordField" binding="pf_mkm">
+                <constraints/>
+                <properties>
+                  <columns value="16"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="90e93" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="4edc5" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="a4c42" class="javax.swing.JButton" binding="btn_doimatkhau">
+                <constraints/>
+                <properties>
+                  <text value="Đổi mật khẩu"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="b36c8" binding="panel_menu" layout-manager="GridLayoutManager" row-count="9" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="North"/>
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="7a6bf" layout-manager="GridBagLayout">
+          <grid id="afd8f" layout-manager="GridBagLayout">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <component id="a70ed" class="javax.swing.JButton" binding="btn_dmk">
+              <component id="59386" class="javax.swing.JButton" binding="btn_dmk">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="0.0"/>
@@ -31,13 +141,13 @@
                   <text value="Đổi mật khẩu"/>
                 </properties>
               </component>
-              <hspacer id="36bf">
+              <hspacer id="67c8d">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="30.0" weighty="0.0"/>
                 </constraints>
               </hspacer>
-              <component id="c0c01" class="javax.swing.JButton" binding="btn_dx">
+              <component id="47d08" class="javax.swing.JButton" binding="btn_dx">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="0.0"/>
@@ -50,19 +160,19 @@
               </component>
             </children>
           </grid>
-          <vspacer id="4c274">
+          <vspacer id="5bfaa">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <grid id="b0136" layout-manager="GridBagLayout">
+          <grid id="38739" layout-manager="GridBagLayout">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <component id="6ca3" class="javax.swing.JButton" binding="btn_import">
+              <component id="22a1" class="javax.swing.JButton" binding="btn_import">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="1.0"/>
@@ -72,7 +182,7 @@
                   <text value="Import"/>
                 </properties>
               </component>
-              <component id="f608e" class="javax.swing.JButton" binding="btn_qll">
+              <component id="143d7" class="javax.swing.JButton" binding="btn_qll">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="1.0"/>
@@ -82,19 +192,19 @@
                   <text value="Quản lý lớp"/>
                 </properties>
               </component>
-              <component id="84c8a" class="javax.swing.JButton" binding="btn_qllm">
+              <component id="d7425" class="javax.swing.JButton" binding="btn_tpk">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="1.0"/>
                 </constraints>
                 <properties>
                   <borderPainted value="false"/>
-                  <text value="Quản lý lớp-môn"/>
+                  <text value="Tạo phúc khảo"/>
                 </properties>
               </component>
-              <component id="fb5a9" class="javax.swing.JButton" binding="btn_tkb">
+              <component id="e51bf" class="javax.swing.JButton" binding="btn_tkb">
                 <constraints>
-                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="1.0"/>
                 </constraints>
                 <properties>
@@ -102,9 +212,9 @@
                   <text value="Thời khóa biểu"/>
                 </properties>
               </component>
-              <component id="4b0" class="javax.swing.JButton" binding="btn_diem">
+              <component id="6f996" class="javax.swing.JButton" binding="btn_diem">
                 <constraints>
-                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="1.0"/>
                 </constraints>
                 <properties>
@@ -112,89 +222,65 @@
                   <text value="Điểm"/>
                 </properties>
               </component>
-            </children>
-          </grid>
-        </children>
-      </grid>
-      <grid id="9e53f" binding="panel_dmk" layout-manager="GridBagLayout">
-        <constraints border-constraint="Center"/>
-        <properties/>
-        <border type="none"/>
-        <children>
-          <grid id="e16a3" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <alignmentX value="1.0"/>
-              <alignmentY value="1.0"/>
-            </properties>
-            <border type="none"/>
-            <children>
-              <component id="74de3" class="javax.swing.JLabel" binding="label_mkc">
-                <constraints/>
-                <properties>
-                  <text value="Mật khẩu cũ: "/>
-                </properties>
-              </component>
-              <component id="10a96" class="javax.swing.JTextField" binding="tf_mkc">
-                <constraints/>
-                <properties>
-                  <columns value="15"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <hspacer id="c0bed">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-          </hspacer>
-          <grid id="ed6b6" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <component id="cf9db" class="javax.swing.JLabel" binding="label_mkm">
-                <constraints/>
-                <properties>
-                  <alignmentX value="1.0"/>
-                  <alignmentY value="1.0"/>
-                  <text value="Mật khẩu mới: "/>
-                </properties>
-              </component>
-              <component id="6312e" class="javax.swing.JPasswordField" binding="pf_mkm">
-                <constraints/>
-                <properties>
-                  <columns value="16"/>
-                  <text value=""/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <grid id="75466" layout-manager="GridBagLayout">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <component id="a0537" class="javax.swing.JButton" binding="btn_doimatkhau">
+              <component id="faf7c" class="javax.swing.JButton" binding="btn_dspk">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
-                  <text value="Đổi mật khẩu"/>
+                  <borderPainted value="false"/>
+                  <text value="Danh sách phúc khảo"/>
                 </properties>
               </component>
             </children>
+          </grid>
+          <grid id="51679" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="6f93f" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="a8abc" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="b636f" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="fe874" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="595f2" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
           </grid>
         </children>
       </grid>

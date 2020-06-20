@@ -292,15 +292,19 @@ public class Demo {
         //yeu cau 14,15
         /*PhucKhaoSinhVien pksv=Demo.taoPhucKhaoSinhVien();
         PhucKhaoSinhVienDAO.addPhucKhaoSinhVien(pksv);*/
-        /*List<PhucKhaoSinhVien> test=PhucKhaoSinhVienDAO.listPhucKhaoSinhVien();
+
+        /*List<PhucKhaoDiem> test1=PhucKhaoDiemDAO.listPhucKhaoDiem();
+        List<PhucKhaoSinhVien>test=PhucKhaoSinhVien.giuaHaiNgay(test1.get(0).getNgayBatDau(),test1.get(0).getNgayKetThuc());
         for(PhucKhaoSinhVien a:test)
         {
             printPhucKhaoSinhVien(a);
         }*/
-        /*PhucKhaoSinhVien test=PhucKhaoSinhVien.searchByMssvMonCotDiem(1742005,"Lập trình ứng dụng Java",1);
-        PhucKhaoSinhVienDAO.updatePhucKhaoSinhVien(test);*/
 
-        BangDiemController.createGUI();
+
+
+
+        DangNhapController.createGUI();
+
 
     }
 

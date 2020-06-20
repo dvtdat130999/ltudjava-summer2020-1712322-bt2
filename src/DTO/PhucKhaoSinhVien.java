@@ -157,4 +157,36 @@ public class PhucKhaoSinhVien {
         return res;
     }
 
+    public static List giuaHaiNgay(Date date1,Date date2)
+    {
+        List<PhucKhaoSinhVien>listPk= PhucKhaoSinhVienDAO.listPhucKhaoSinhVien();
+        List<PhucKhaoSinhVien> res=new ArrayList<>();
+        for(PhucKhaoSinhVien a:listPk)
+        {
+            if(a.getNgayPhucKhao().compareTo(date1)>=0
+                    && a.getNgayPhucKhao().compareTo(date2)<=0)
+            {
+                res.add(a);
+
+            }
+        }
+        return res;
+    }
+
+    public static PhucKhaoSinhVien searchPhucKhao(int mssv,String tenMon,int cotDiem)
+    {
+        List<PhucKhaoSinhVien>list=PhucKhaoSinhVienDAO.listPhucKhaoSinhVien();
+        PhucKhaoSinhVien res=null;
+        for(PhucKhaoSinhVien a:list)
+        {
+            if(a.getMssv()==mssv && Util.Util.stringCompare(tenMon,a.getHoTen())==0 && cotDiem==a.getCotDiem())
+            {
+                res=a;
+                break;
+
+            }
+        }
+        return res;
+
+    }
 }

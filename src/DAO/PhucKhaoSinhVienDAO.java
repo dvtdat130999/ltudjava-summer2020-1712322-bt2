@@ -54,13 +54,10 @@ public class PhucKhaoSinhVienDAO {
 
     public static void updatePhucKhaoSinhVien(PhucKhaoSinhVien a)
     {
-        PhucKhaoSinhVienDAO.deletePhucKhaoSinhVien(a);
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Nhập tình trạng phúc khảo:");
-        String tinhTrang=sc.nextLine();
-        a.setTinhTrang(tinhTrang);
+        PhucKhaoSinhVien temp=PhucKhaoSinhVien.searchByMssvMonCotDiem(a.getMssv(),a.getMon(),a.getCotDiem());
+        PhucKhaoSinhVienDAO.deletePhucKhaoSinhVien(temp);
+
         PhucKhaoSinhVienDAO.addPhucKhaoSinhVien(a);
-        System.out.println("Cập nhật tình trạng thành công");
 
     }
 

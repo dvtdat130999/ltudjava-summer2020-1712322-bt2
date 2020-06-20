@@ -1,6 +1,6 @@
 package View;
 
-import Controller.DangNhapController;
+import Controller.*;
 import DAO.DiemSinhVienDAO;
 import DAO.LopDAO;
 import DAO.MonHocDAO;
@@ -20,7 +20,7 @@ public class BangDiemView {
     private JButton btn_dx;
     private JButton btn_import;
     private JButton btn_qll;
-    private JButton btn_qllm;
+    private JButton btn_tpk;
     private JButton btn_tkb;
     private JButton btn_diem;
     private JComboBox cb_lop;
@@ -51,6 +51,7 @@ public class BangDiemView {
     private JButton btn_tk;
     private JLabel label_kq;
     private JComboBox cb_kq;
+    private JButton btn_dspk;
 
     String lopDuocChon="";
     String monDuocChon="";
@@ -227,7 +228,60 @@ public class BangDiemView {
                 DangNhapController.createGUI();
             }
         });
+        btn_dmk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                DoiMatKhauController.createGUI();
+            }
+        });
 
+        btn_import.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                ImportController.createGUI();
+            }
+        });
+
+        btn_qll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                LopController.createGUI();
+            }
+        });
+
+        btn_tkb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                ThoiKhoaBieuController.createGUI();
+            }
+        });
+
+        btn_diem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                BangDiemController.createGUI();
+            }
+        });
+
+        btn_tpk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                TaoThoiGianPhucKhaoController.createGUI();
+            }
+        });
+        btn_dspk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                DanhSachPhucKhaoController.createGUI();
+            }
+        });
     }
 
     public String[][] parseDiemSinhVienToListString(List<DiemSinhVien> sv)

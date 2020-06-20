@@ -1,6 +1,7 @@
 
 package DTO;
 
+import DAO.DiemSinhVienDAO;
 import DAO.Lop_MonHocDAO;
 import DAO.MonHocDAO;
 
@@ -89,11 +90,85 @@ public class MonHoc {
         {
             if(Util.Util.stringCompare(a.getTenLop(),tenLop)==0)
             {
-                MonHoc b= MonHocDAO.searchMonHoc(a.getMaMon());
+                MonHoc b= MonHocDAO.searchMon(a.getMaMon());
                 res.add(b);
             }
         }
         return res;
+    }
+
+    public static List searchByNamHocKy(String nam,int hocKy)
+    {
+        List<MonHoc>monHocList=MonHocDAO.listMonHoc();
+        List<MonHoc>res=new ArrayList<>();
+        for(MonHoc a: monHocList)
+        {
+            if(Util.Util.stringCompare(nam,a.getNam())==0 && hocKy==a.getHocKy())
+            {
+                res.add(a);
+            }
+        }
+        return res;
+    }
+
+    public static List listMonHoc(List<String>maMon)
+    {
+        List<MonHoc>res=new ArrayList<>();
+        for(String ma:maMon)
+        {
+            MonHoc a=MonHocDAO.searchMon(ma);
+            res.add(a);
+        }
+        return res;
+    }
+    public static List tkbSinhVien(String nam,int hocKy,int mssv)
+    {
+        //lấy các thông tin từ bảng sinhvien-mon những môn mà sinh viên học trong năm, học kỳ
+        List<SinhVien_Mon>sinhVien_monList=SinhVien_Mon.listMonHocSinhVienTheoNamHocKy(mssv,nam,hocKy);
+
+        //lấy các mã môn vừa kiếm được
+        List<String>maMon2=new ArrayList<>();
+        for(SinhVien_Mon a:sinhVien_monList)
+        {
+            maMon2.add(a.getMaMon());
+
+        }
+
+        //lấy ra thông tin các môn học từ các mã môn vừa kiếm được
+        List<MonHoc>res=new ArrayList<>();
+        res=listMonHoc(maMon2);
+
+
+        return res;
+
+    }
+
+    public static List listNam()
+    {
+        List<MonHoc>monHocs= MonHocDAO.listMonHoc();
+        List<String>nam=new ArrayList<>();
+        for(MonHoc a:monHocs)
+        {
+            if(nam.contains(a.getNam())==false)
+            {
+                nam.add(a.getNam());
+            }
+        }
+        return nam;
+    }
+    public static List listHocKy()
+    {
+        List<MonHoc>monHocs= MonHocDAO.listMonHoc();
+        List<Integer>hocKy=new ArrayList<>();
+        for(MonHoc a:monHocs)
+        {
+            if(hocKy.contains(a.getHocKy())==false)
+            {
+                hocKy.add(a.getHocKy());
+            }
+        }
+        return hocKy;
+
     }
 }
 
