@@ -1,7 +1,10 @@
 package DAO;
 
+import DTO.DiemSinhVien;
 import DTO.Lop;
+import DTO.NguoiDung;
 import DTO.SinhVien;
+import Demo.Demo;
 import Util.HibernateUtil;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
@@ -28,6 +31,8 @@ public class SinhVienDAO {
         } finally {
             session.close();
         }
+        NguoiDung nguoiDung=new NguoiDung(String.valueOf(sv.getMssv()),String.valueOf(sv.getMssv()));
+        NguoiDungDAO.addNguoiDung(nguoiDung);
     }
 
     public static List listSinhVien() {
@@ -46,6 +51,7 @@ public class SinhVienDAO {
         }
         return listSinhVien;
     }
+
 
 
 
@@ -79,6 +85,46 @@ public class SinhVienDAO {
         }
         return listSinhVien;
     }
+    public static void deleteSinhVien(SinhVien sv) {
+        Session session = HibernateUtil.getSessionFactory()
+                .openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(sv);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null)
+                tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 
+    public static void updateSinhVien(SinhVien a)
+    {
+        Session session = HibernateUtil.getSessionFactory()
+                .openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            SinhVien sv = (SinhVien) session.get(SinhVien.class, a.getMssv());
+            sv.setMssv(a.getMssv());
+            sv.setLop(a.getLop());
+            sv.setHoTen(a.getHoTen());
+            sv.setGioiTinh(a.getGioiTinh());
+            sv.setCmnd(a.getCmnd());
+
+            session.update(sv);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null)
+                tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 
 }

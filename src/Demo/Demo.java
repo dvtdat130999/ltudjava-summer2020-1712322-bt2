@@ -1,12 +1,16 @@
 package Demo;
 
+import Controller.DangNhapController;
+import Controller.LopController;
 import DAO.LopDAO;
 import DTO.*;
 
 import DAO.*;
 import Util.Util;
+import View.LopView;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -115,6 +119,18 @@ public class Demo {
         //yeu cau 5
 
         //xem danh sach sinh vien trong lop
+
+        LopController.createGUI();
+        /*List<MonHoc>list=MonHocDAO.listMonHoc();
+        for(MonHoc a:list)
+        {
+            System.out.println("Ma: "+a.getMa());
+            System.out.println("Ten: "+a.getTen());
+            System.out.println("Phong: "+a.getPhong());
+            System.out.println("Nam: "+a.getNam());
+            System.out.println("Hoc ky: "+a.getHocKy());
+
+        }*/
         /*List<SinhVien> sv=SinhVien.listSinhVienLop("18HCB");
         for(SinhVien a:sv)
         {
@@ -244,7 +260,9 @@ public class Demo {
         //dang nhap
         /*NguoiDung a=Demo.nhapTaiKhoanVaMatKhau();
         Demo.DangNhap(a);*/
-
+/*
+        DangNhapController.createGUI();
+*/
         //yeu cau 12
         //doi mat khau
 /*
@@ -264,8 +282,8 @@ public class Demo {
         {
             printPhucKhaoSinhVien(a);
         }*/
-        PhucKhaoSinhVien test=PhucKhaoSinhVien.searchByMssvMonCotDiem(1742005,"Lập trình ứng dụng Java",1);
-        PhucKhaoSinhVienDAO.updatePhucKhaoSinhVien(test);
+        /*PhucKhaoSinhVien test=PhucKhaoSinhVien.searchByMssvMonCotDiem(1742005,"Lập trình ứng dụng Java",1);
+        PhucKhaoSinhVienDAO.updatePhucKhaoSinhVien(test);*/
 
     }
 
@@ -323,7 +341,9 @@ public class Demo {
         System.out.println("Lý do, rõ ràng cụ thể:");
         String lyDo=sc.nextLine();
 
-        PhucKhaoSinhVien pksv=new PhucKhaoSinhVien(mssv,hoTen,mon,cot,diemMongMuon,lyDo,"Chưa xem");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+        Date today=new Date();
+        PhucKhaoSinhVien pksv=new PhucKhaoSinhVien(mssv,hoTen,mon,cot,diemMongMuon,lyDo,"Chưa xem",today);
         return pksv;
 
 
@@ -363,6 +383,10 @@ public class Demo {
         System.out.println("Lý do: "+a.getLyDo());
         System.out.println("Tình trạng: "+a.getTinhTrang());
 
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+
+        System.out.println("Ngày phúc khảo: "+df.format(a.getNgayPhucKhao()));
+        System.out.println();
     }
     public static void printSinhVien(SinhVien a)
     {

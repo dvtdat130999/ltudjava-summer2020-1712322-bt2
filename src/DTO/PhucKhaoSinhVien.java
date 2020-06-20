@@ -6,6 +6,7 @@ import DAO.PhucKhaoSinhVienDAO;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -35,11 +36,16 @@ public class PhucKhaoSinhVien {
 
     @Column(name = "tinhTrang")
     String tinhTrang;
+
+    @Column(name = "ngayPhucKhao",columnDefinition="DATETIME")
+    @Temporal(TemporalType.TIMESTAMP)
+    Date ngayPhucKhao ;
+
     public PhucKhaoSinhVien() {
     }
 
     public PhucKhaoSinhVien(int mssv, String hoTen, String mon,
-                            int cotDiem, double diemMongMuon, String lyDo,String tinhTrang) {
+                            int cotDiem, double diemMongMuon, String lyDo,String tinhTrang,Date ngayPhucKhao) {
         this.mssv = mssv;
         this.hoTen = hoTen;
         this.mon = mon;
@@ -47,6 +53,7 @@ public class PhucKhaoSinhVien {
         this.diemMongMuon = diemMongMuon;
         this.lyDo = lyDo;
         this.tinhTrang=tinhTrang;
+        this.ngayPhucKhao=ngayPhucKhao;
     }
 
 
@@ -111,6 +118,14 @@ public class PhucKhaoSinhVien {
         this.tinhTrang = tinhTrang;
     }
 
+    public Date getNgayPhucKhao() {
+        return ngayPhucKhao;
+    }
+
+    public void setNgayPhucKhao(Date ngayPhucKhao) {
+        this.ngayPhucKhao = ngayPhucKhao;
+    }
+
     public static PhucKhaoSinhVien searchByMssvMonCotDiem(int mssv,String mon,int cotDiem)
     {
         List<PhucKhaoSinhVien>listPk= PhucKhaoSinhVienDAO.listPhucKhaoSinhVien();
@@ -125,4 +140,21 @@ public class PhucKhaoSinhVien {
         }
         return res;
     }
+
+    public static PhucKhaoSinhVien searchByNgay(Date date1,Date date2)
+    {
+        List<PhucKhaoSinhVien>listPk= PhucKhaoSinhVienDAO.listPhucKhaoSinhVien();
+        PhucKhaoSinhVien res=new PhucKhaoSinhVien();
+        for(PhucKhaoSinhVien a:listPk)
+        {
+            if(a.getNgayPhucKhao().compareTo(date1)>=0
+                && a.getNgayPhucKhao().compareTo(date2)<=0)
+            {
+                res=a;
+                break;
+            }
+        }
+        return res;
+    }
+
 }
