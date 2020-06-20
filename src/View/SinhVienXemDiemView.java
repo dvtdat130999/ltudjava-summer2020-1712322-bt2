@@ -79,26 +79,38 @@ public class SinhVienXemDiemView {
 
         //lay nam cho JComboBox
         List<String>listNam=DiemSinhVien.listNam();
-        for(String a:listNam)
+        if(listNam.size()>0)
         {
-            cb_nam.addItem(a);
+            for(String a:listNam)
+            {
+                cb_nam.addItem(a);
+            }
+            cb_nam.setSelectedIndex(0);
         }
-        cb_nam.setSelectedIndex(0);
+
         //lay hoc ky cho JComboBox
+
         List<Integer>listHocKy=DiemSinhVien.listHocKy();
-        for(int a:listHocKy)
+        if(listHocKy.size()>0)
         {
-            cb_hocky.addItem(String.valueOf(a));
+            for(int a:listHocKy)
+            {
+                cb_hocky.addItem(String.valueOf(a));
+            }
+            cb_hocky.setSelectedIndex(0);
         }
-        cb_hocky.setSelectedIndex(0);
+        if(listHocKy.size()>0 &&listNam.size()>0)
+        {
+            //lay ket qua cho JComboBox
+            cb_kq.addItem("");
+            cb_kq.addItem("Đậu");
+            cb_kq.addItem("Rớt");
+            cb_kq.setSelectedIndex(0);
 
-        //lay ket qua cho JComboBox
-        cb_kq.addItem("");
-        cb_kq.addItem("Đậu");
-        cb_kq.addItem("Rớt");
-        cb_kq.setSelectedIndex(0);
-
+        }
         createTable(nguoiDung);
+
+
 
     }
 
@@ -109,15 +121,19 @@ public class SinhVienXemDiemView {
 
     public void createTable(NguoiDung nguoiDung)
     {
-        //mac dinh cho index=0
-        lopDuocChon = "" + cb_lop.getItemAt(
-                cb_lop.getSelectedIndex());
-        monDuocChon=""+cb_mon.getItemAt(cb_mon.getSelectedIndex());
-        namDuocChon=""+cb_nam.getItemAt(cb_nam.getSelectedIndex());
-        hocKyDuocChon=""+cb_hocky.getItemAt(cb_hocky.getSelectedIndex());
-        diemSinhVienList=DiemSinhVien.DiemMotSinhVien(namDuocChon,Integer.parseInt(hocKyDuocChon),Integer.parseInt(nguoiDung.getTaiKhoan()));
-        data=parseDiemSinhVienToListString(diemSinhVienList);
-        table_diem.setModel(new DefaultTableModel(data,column));
+        if(cb_kq.getSelectedIndex()!=-1)
+        {
+            //mac dinh cho index=0
+            lopDuocChon = "" + cb_lop.getItemAt(
+                    cb_lop.getSelectedIndex());
+            monDuocChon=""+cb_mon.getItemAt(cb_mon.getSelectedIndex());
+            namDuocChon=""+cb_nam.getItemAt(cb_nam.getSelectedIndex());
+            hocKyDuocChon=""+cb_hocky.getItemAt(cb_hocky.getSelectedIndex());
+            diemSinhVienList=DiemSinhVien.DiemMotSinhVien(namDuocChon,Integer.parseInt(hocKyDuocChon),Integer.parseInt(nguoiDung.getTaiKhoan()));
+            data=parseDiemSinhVienToListString(diemSinhVienList);
+            table_diem.setModel(new DefaultTableModel(data,column));
+        }
+
         //action khi nhan nut "Xem"
         btn_xem.addActionListener(new ActionListener() {
             @Override

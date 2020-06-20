@@ -4,9 +4,11 @@ import Controller.*;
 import DAO.LopDAO;
 import DAO.MonHocDAO;
 import DAO.SinhVienDAO;
+import DAO.SinhVien_MonDAO;
 import DTO.Lop;
 import DTO.MonHoc;
 import DTO.SinhVien;
+import DTO.SinhVien_Mon;
 import Demo.Demo;
 
 import javax.swing.*;
@@ -50,6 +52,8 @@ public class LopView {
     private JPanel panel_menu;
     private JButton btn_tpk;
     private JButton btn_dspk;
+    private JTextField tf_mon;
+    private JButton btn_xoa;
 
     String lopDuocChon="";
     String monDuocChon="";
@@ -143,20 +147,58 @@ public class LopView {
         btn_addsv.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int mssv=Integer.parseInt(tf_mssv.getText());
-                String hoTen=tf_hoTen.getText();
-                String gioiTinh=tf_gt.getText();
-                String cmnd=tf_cmnd.getText();
-                String tenLop=tf_lop.getText();
-                Lop lop=LopDAO.searchLop(tenLop);
-                SinhVien svMoi=new SinhVien(mssv,hoTen,gioiTinh,cmnd,lop);
-                SinhVienDAO.addSinhVien(svMoi);
+                if(Util.Util.stringCompare(tf_mon.getText(),"")==0)
+                {
+                    int mssv=Integer.parseInt(tf_mssv.getText());
+                    String hoTen=tf_hoTen.getText();
+                    String gioiTinh=tf_gt.getText();
+                    String cmnd=tf_cmnd.getText();
+                    String tenLop=tf_lop.getText();
+                    Lop lop=LopDAO.searchLop(tenLop);
+                    SinhVien svMoi=new SinhVien(mssv,hoTen,gioiTinh,cmnd,lop);
+                    SinhVienDAO.addSinhVien(svMoi);
 
-                sinhVienList=SinhVien.listSinhVienLop(lopDuocChon);
-                data=parseSinhVienToListString(sinhVienList);
-                table_dslop.setModel(new DefaultTableModel(
-                        data,column
-                ));
+                    sinhVienList=SinhVien.listSinhVienLop(lopDuocChon);
+                    data=parseSinhVienToListString(sinhVienList);
+                    table_dslop.setModel(new DefaultTableModel(
+                            data,column
+                    ));
+                }
+                else
+                {
+                    int mssv=Integer.parseInt(tf_mssv.getText());
+                    String maMon=tf_mon.getText();
+
+                    String tenLop=tf_lop.getText();
+                    SinhVien_Mon sm1=new SinhVien_Mon(mssv,maMon,tenLop);
+                    SinhVien_MonDAO.addSinhVienMon(sm1);
+                    sinhVienList=SinhVien.listSinhVienLopMon(lopDuocChon,maMon);
+                    data=parseSinhVienToListString(sinhVienList);
+                    table_dslop.setModel(new DefaultTableModel(
+                            data,column
+                    ));
+                }
+            }
+        });
+
+        btn_xoa.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(Util.Util.stringCompare(tf_mon.getText(),"")!=0)
+                {
+                    int mssv=Integer.parseInt(tf_mssv.getText());
+                    String maMon=tf_mon.getText();
+
+                    String tenLop=tf_lop.getText();
+                    SinhVien_Mon sm1=new SinhVien_Mon(mssv,maMon,tenLop);
+                    SinhVien_MonDAO.deleteSinhVienMon(sm1);
+                    sinhVienList=SinhVien.listSinhVienLopMon(lopDuocChon,maMon);
+                    data=parseSinhVienToListString(sinhVienList);
+                    table_dslop.setModel(new DefaultTableModel(
+                            data,column
+                    ));
+                }
+
             }
         });
         //action khi nhan nut delete

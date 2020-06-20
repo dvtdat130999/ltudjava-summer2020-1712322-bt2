@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.LopView">
   <grid id="27dc6" binding="panel_main" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="603" height="414"/>
+      <xy x="20" y="20" width="603" height="463"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -13,7 +13,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="fe0cb" binding="panel_check" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="fe0cb" binding="panel_check" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -69,7 +69,7 @@
                   <component id="befd" class="javax.swing.JLabel" binding="label_gt">
                     <constraints border-constraint="West"/>
                     <properties>
-                      <text value="Giới tính:   "/>
+                      <text value="Giới tính:    "/>
                     </properties>
                   </component>
                   <component id="50fe2" class="javax.swing.JTextField" binding="tf_gt">
@@ -107,7 +107,7 @@
                   <component id="30817" class="javax.swing.JLabel" binding="label_lop">
                     <constraints border-constraint="West"/>
                     <properties>
-                      <text value="Lớp:           "/>
+                      <text value="Lớp:             "/>
                     </properties>
                   </component>
                   <component id="c6232" class="javax.swing.JTextField" binding="tf_lop">
@@ -120,7 +120,7 @@
               </grid>
               <grid id="e4b33" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints>
-                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
@@ -136,6 +136,31 @@
                     <properties>
                       <text value="Sửa"/>
                     </properties>
+                  </component>
+                  <component id="9e79e" class="javax.swing.JButton" binding="btn_xoa">
+                    <constraints/>
+                    <properties>
+                      <text value="Xóa"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="5732f" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="7ac2f" class="javax.swing.JLabel">
+                    <constraints border-constraint="West"/>
+                    <properties>
+                      <text value="Môn:          "/>
+                    </properties>
+                  </component>
+                  <component id="f59b7" class="javax.swing.JTextField" binding="tf_mon">
+                    <constraints border-constraint="Center"/>
+                    <properties/>
                   </component>
                 </children>
               </grid>
