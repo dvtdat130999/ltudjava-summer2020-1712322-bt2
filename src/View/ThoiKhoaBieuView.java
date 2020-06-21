@@ -47,7 +47,11 @@ public class ThoiKhoaBieuView {
 
         }
 
-        cb_lop.setSelectedIndex(0);
+        if(listLop.size()>0)
+        {
+            cb_lop.setSelectedIndex(0);
+
+        }
         createTable();
     }
 
@@ -65,26 +69,32 @@ public class ThoiKhoaBieuView {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        if(cb_lop.getSelectedIndex()!=-1)
+        {
+            lopDuocChon = "" + cb_lop.getItemAt(
+                    cb_lop.getSelectedIndex());
+            listMonHoc= MonHoc.searchByLop(lopDuocChon);
+            data=parseMonToListString(listMonHoc);
+            tb_dsmonlop.setModel(new DefaultTableModel(data,column));
+            btn_xem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    //danh sach mon hoc theo lop
+                    lopDuocChon = "" + cb_lop.getItemAt(
+                            cb_lop.getSelectedIndex());
+                    listMonHoc= MonHoc.searchByLop(lopDuocChon);
+                    data=parseMonToListString(listMonHoc);
+                    tb_dsmonlop.setModel(new DefaultTableModel(data,column));
+                }
+            });
+
+        }
         //mac dinh cho index=0
         //danh sach mon hoc theo lop
-        lopDuocChon = "" + cb_lop.getItemAt(
-                cb_lop.getSelectedIndex());
-        listMonHoc= MonHoc.searchByLop(lopDuocChon);
-        data=parseMonToListString(listMonHoc);
-        tb_dsmonlop.setModel(new DefaultTableModel(data,column));
+
 
         //action cho viec nhan nut "Xem"
-        btn_xem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //danh sach mon hoc theo lop
-                lopDuocChon = "" + cb_lop.getItemAt(
-                        cb_lop.getSelectedIndex());
-                listMonHoc= MonHoc.searchByLop(lopDuocChon);
-                data=parseMonToListString(listMonHoc);
-                tb_dsmonlop.setModel(new DefaultTableModel(data,column));
-            }
-        });
 
         btn_dx.addActionListener(new ActionListener() {
             @Override

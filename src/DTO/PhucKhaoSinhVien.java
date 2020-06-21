@@ -134,6 +134,7 @@ public class PhucKhaoSinhVien {
         {
             if(Util.Util.stringCompare(a.getMon(),mon)==0 && a.getMssv()==mssv && a.getCotDiem()==cotDiem)
             {
+
                 res=a;
                 break;
             }

@@ -74,7 +74,11 @@ public class LopView {
 
         }
 
-        cb_lop.setSelectedIndex(0);
+        if(listLop.size()>0)
+        {
+            cb_lop.setSelectedIndex(0);
+
+        }
 
         //lay ten mon cho JComboBox
         //cho 1 item la rong de co the xem danh sach theo lop
@@ -102,45 +106,52 @@ public class LopView {
 
         frame.setVisible(true);
 
-        //mac dinh cho index=0
-        lopDuocChon = "" + cb_lop.getItemAt(
-                cb_lop.getSelectedIndex());
-        sinhVienList=SinhVien.listSinhVienLop(lopDuocChon);
 
-        data=parseSinhVienToListString(sinhVienList);
-        table_dslop.setModel(new DefaultTableModel(
-                data,column
-        ));
+        if(cb_mon.getSelectedIndex()!=-1)
+        {
+            //mac dinh cho index=0
+            lopDuocChon = "" + cb_lop.getItemAt(
+                    cb_lop.getSelectedIndex());
+            sinhVienList=SinhVien.listSinhVienLop(lopDuocChon);
 
-        //action khi chon lai lop khac
-        btn_xem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //danh sach sinh vien theo lop
-                if (cb_lop.getSelectedIndex() != -1&&cb_mon.getSelectedIndex()==0) {
-                    lopDuocChon = "" + cb_lop.getItemAt(
-                            cb_lop.getSelectedIndex());
-                    sinhVienList=SinhVien.listSinhVienLop(lopDuocChon);
-                    data=parseSinhVienToListString(sinhVienList);
-                    table_dslop.setModel(new DefaultTableModel(
-                            data,column
-                    ));
+            data=parseSinhVienToListString(sinhVienList);
+            table_dslop.setModel(new DefaultTableModel(
+                    data,column
+            ));
+
+            //action khi chon lai lop khac
+            btn_xem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    //danh sach sinh vien theo lop
+                    if (cb_lop.getSelectedIndex() != -1&&cb_mon.getSelectedIndex()==0) {
+                        lopDuocChon = "" + cb_lop.getItemAt(
+                                cb_lop.getSelectedIndex());
+                        sinhVienList=SinhVien.listSinhVienLop(lopDuocChon);
+                        data=parseSinhVienToListString(sinhVienList);
+                        table_dslop.setModel(new DefaultTableModel(
+                                data,column
+                        ));
+                    }
+
+                    //danh sach sinh vien theo lop-mon
+                    if (cb_lop.getSelectedIndex() != -1&&cb_mon.getSelectedIndex()!=0) {
+                        lopDuocChon = "" + cb_lop.getItemAt(
+                                cb_lop.getSelectedIndex());
+                        monDuocChon=""+cb_mon.getItemAt(cb_mon.getSelectedIndex());
+                        sinhVienList=SinhVien.listSinhVienLopMon(lopDuocChon,monDuocChon);
+                        data=parseSinhVienToListString(sinhVienList);
+                        table_dslop.setModel(new DefaultTableModel(
+                                data,column
+                        ));
+                    }
+
                 }
+            });
+        }
 
-                //danh sach sinh vien theo lop-mon
-                if (cb_lop.getSelectedIndex() != -1&&cb_mon.getSelectedIndex()!=0) {
-                    lopDuocChon = "" + cb_lop.getItemAt(
-                            cb_lop.getSelectedIndex());
-                    monDuocChon=""+cb_mon.getItemAt(cb_mon.getSelectedIndex());
-                    sinhVienList=SinhVien.listSinhVienLopMon(lopDuocChon,monDuocChon);
-                    data=parseSinhVienToListString(sinhVienList);
-                    table_dslop.setModel(new DefaultTableModel(
-                            data,column
-                    ));
-                }
 
-            }
-        });
+
 
 
         //action khi nhan nut add
