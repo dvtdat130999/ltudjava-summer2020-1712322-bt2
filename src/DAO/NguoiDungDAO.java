@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 public class NguoiDungDAO {
     private static SessionFactory factory;
     public static void addNguoiDung(NguoiDung nd) {
@@ -27,6 +29,24 @@ public class NguoiDungDAO {
         } finally {
             session.close();
         }
+    }
+
+    public static List listNguoiDung() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        List nguoiDung=null;
+        try{
+            tx = session.beginTransaction();
+            nguoiDung = session.createQuery("FROM NguoiDung").list();
+
+            tx.commit();
+
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return nguoiDung;
     }
 
     public static boolean searchNguoiDung(String taiKhoan,String matKhau)

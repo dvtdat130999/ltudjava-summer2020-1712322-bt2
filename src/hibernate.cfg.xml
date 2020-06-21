@@ -10,13 +10,15 @@
             com.mysql.jdbc.Driver
         </property>
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost:3306/studentmanagement
+            jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12349936
         </property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">Dvtdat130999</property>
+        <property name="hibernate.connection.username">sql12349936</property>
+        <property name="hibernate.connection.password">QX8wTSbjvm</property>
 
 
-        <property name="hibernate.current_session_context_class">thread</property>
+        <!--
+                <property name="hibernate.current_session_context_class">thread</property>
+        -->
 
         <!-- List mapping annotation classes -->
         <mapping class="DTO.Lop"/>
