@@ -10,10 +10,10 @@
             com.mysql.jdbc.Driver
         </property>
         <property name="hibernate.connection.url">
-            jdbc:mysql://db4free.net:3306/sql12349936
+            jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12349936
         </property>
-        <property name="hibernate.connection.username">tiendat</property>
-        <property name="hibernate.connection.password">tiendat123456</property>
+        <property name="hibernate.connection.username">sql12349936</property>
+        <property name="hibernate.connection.password">QX8wTSbjvm</property>
 
 
         <!--
