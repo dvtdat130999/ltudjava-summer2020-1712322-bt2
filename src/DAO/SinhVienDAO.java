@@ -1,17 +1,14 @@
 package DAO;
 
-import DTO.DiemSinhVien;
-import DTO.Lop;
+
 import DTO.NguoiDung;
 import DTO.SinhVien;
-import Demo.Demo;
+
 import Util.HibernateUtil;
 import org.hibernate.*;
-import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class SinhVienDAO {
     private static SessionFactory factory;
